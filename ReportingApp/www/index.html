@@ -23,7 +23,9 @@
     <script src="cordova.js"></script>
 
     <!-- your app's js -->
-    <script src="js/app.js"></script>
+    <script src="js/app.module.js"></script>
+    <!-- routing configuration -->
+    <script src="js/app.config.js"></script>
 
     <!-- login page js -->
     <script src="loginPage/login-page.component.js"></script>
@@ -37,6 +39,7 @@
       </ion-header-bar>
       <ion-content>
         <!-- Placeholder that gets updated by javascript on page refreshes -->
+        <div ng-view></div>
       </ion-content>
     </ion-pane>
   </body>
