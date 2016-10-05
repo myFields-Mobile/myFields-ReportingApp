@@ -12,6 +12,3 @@ gen
 out
 # Gradle builds
 /build
-
-*.bin
-*.lock
