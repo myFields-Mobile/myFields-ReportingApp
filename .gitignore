@@ -13,6 +13,7 @@
 #Built objects
 *.bin
 *.lock
+/.gradle
 
 # Build results
 [Dd]ebug/
