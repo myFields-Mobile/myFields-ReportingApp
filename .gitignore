@@ -6,9 +6,15 @@
 *.user
 *.userosscache
 *.sln.docstates
+*.vscode
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
+
+#Built objects
+*.bin
+*.lock
+/.gradle
 
 # Build results
 [Dd]ebug/
@@ -241,3 +247,4 @@ ModelManifest.xml
 # FAKE - F# Make
 .fake/
 .vscode/launch.json
+*.lock
