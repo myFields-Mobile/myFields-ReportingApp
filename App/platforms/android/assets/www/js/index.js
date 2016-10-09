@@ -16,6 +16,8 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+var loginPage = require("../loginPage/login-page.js");
+
 var app = {
     // Application Constructor
     initialize: function() {
@@ -45,6 +47,8 @@ var app = {
         receivedElement.setAttribute('style', 'display:block;');
 
         console.log('Received Event: ' + id);
+
+        $('view').html(new loginPage());
     }
 };
 
