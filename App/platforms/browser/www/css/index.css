@@ -24,7 +24,8 @@ body {
     -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
     -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
     -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
-    background-color:#E4E4E4;
+    background-color:#dbcf97;
+    /**
     background-image:linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
     background-image:-webkit-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
     background-image:-ms-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
@@ -36,13 +37,17 @@ body {
         color-stop(0.51, #E4E4E4)
     );
     background-attachment:fixed;
+
     font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
-    font-size:12px;
+    **/
+    font: 100%/1.4 Verdana, Arial, Helvetica, sans-serif;
+    font-size:300%;
     height:100%;
-    margin:0px;
+    margin: auto;
     padding:0px;
-    text-transform:uppercase;
+    /**text-transform:uppercase;**/
     width:100%;
+    text-align:center; vertical-align:middle;
 }
 
 /* Portrait layout (default) */
@@ -112,4 +117,44 @@ h1 {
 .blink {
     animation:fade 3000ms infinite;
     -webkit-animation:fade 3000ms infinite;
+}
+
+.button {
+    background: #e6e5df;
+    background-image: -webkit-linear-gradient(top, #e6e5df, #6a6b60);
+    background-image: -moz-linear-gradient(top, #e6e5df, #6a6b60);
+    background-image: -ms-linear-gradient(top, #e6e5df, #6a6b60);
+    background-image: -o-linear-gradient(top, #e6e5df, #6a6b60);
+    background-image: linear-gradient(to bottom, #e6e5df, #6a6b60);
+    -webkit-border-radius: 28;
+    -moz-border-radius: 28;
+    border-radius: 28px;
+    font-family: Arial;
+    color: #000000;
+    font-size: 45px;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+}
+
+.button:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+div.HeaderImage {
+    content: url('../img/myFieldsLogo.png');
+    margin: auto;
+    text-align:center;
+    vertical-align:middle;
+    height: 40%;
+    width: 40%;
+}
+
+div.LoginPage{
+    padding: 20px;
+}
+
+.input{
+
 }

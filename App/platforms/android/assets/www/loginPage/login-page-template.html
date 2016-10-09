@@ -1,9 +1,21 @@
-<div class="LoginPage" ng-controller="LoginController">
-    <form>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>myFields Login</title>
+	<link href="../css/index.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<div class="HeaderImage"></div>
+
+<div class="LoginPage">
         Email:    
-        <input type="email" name="email" ng-model="login.email"><br>
+        <input type="email" name="email"><br>
         Password: 
-        <input type="password" name="password" ng-model="login.password"><br>
-        <input type="submit" value="Log In" ng-model="update(login)"><br>
-    </form>
+        <input type="password" name="password"><br>
+        <button class="button">Log In</button>
+        <!--<input type="submit" value="Log In" ng-model="update(login)"><br> !-->
 </div>
+</body>
+</html>

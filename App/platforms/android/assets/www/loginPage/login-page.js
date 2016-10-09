@@ -25,3 +25,5 @@ var LoginPage = function(){
     loginPage.initialize();
     return loginPage;
 }
+
+LoginPage();
