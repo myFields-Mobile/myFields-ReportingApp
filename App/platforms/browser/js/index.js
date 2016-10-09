@@ -16,9 +16,6 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-
-var loginPage = require("../loginPage/login-page.js");
-
 var app = {
     // Application Constructor
     initialize: function() {
@@ -34,10 +31,9 @@ var app = {
     // deviceready Event Handler
     //
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
-    // function, we must explicitly call 'app.receivedEvent(...);'
+    // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
-        LoginPage().renderView();
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
@@ -51,5 +47,3 @@ var app = {
         console.log('Received Event: ' + id);
     }
 };
-
-app.initialize();
