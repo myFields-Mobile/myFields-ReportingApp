@@ -1,9 +1,7 @@
 var loginPage = {
-    self: null,
+    // LoginPage constructor
     initialize: function() {
-        self = this;
         this.bindEvents();
-        self.renderView();
     },
     // Register submit button event handler
     bindEvents: function() {
@@ -16,9 +14,8 @@ var loginPage = {
     },
 
     renderView: function() {
-        $("#view").load("./loginPage/login-page-template.html", function(data) {
-            $('#view').html(data);
-        });
+        document.getElementByID("view").innerHTML='<object type="text/html" data="login-page-template.html"></object>';
     }
 };
+
 loginPage.initialize();
