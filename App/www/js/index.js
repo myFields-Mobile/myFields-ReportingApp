@@ -39,7 +39,8 @@ var app = {
     receivedEvent: function(id) {
         console.log('Received Event: ' + id);
         // Load login page
-        document.getElementById("view").innerHTML='<object type="text/html" data="../loginPage/login-page-template.html"></object>';
+        loginPage.initialize();
+        loginPage.renderView();
     }
 };
 

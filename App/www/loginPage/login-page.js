@@ -14,8 +14,6 @@ var loginPage = {
     },
 
     renderView: function() {
-        document.getElementByID("view").innerHTML='<object type="text/html" data="login-page-template.html"></object>';
+        document.getElementById("view").innerHTML='<object type="text/html" data="../loginPage/login-page-template.html"></object>';
     }
 };
-
-loginPage.initialize();

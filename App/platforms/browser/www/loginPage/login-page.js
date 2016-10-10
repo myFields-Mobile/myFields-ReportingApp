@@ -45,9 +45,14 @@ var loginPage = {
     },
 
     renderView: function() {
-        document.getElementByID("view").innerHTML='<object type="text/html" data="login-page-template.html"></object>';
+        console.log("IN RENDERVIEW");
+        document.getElementById("view").innerHTML='<object type="text/html" data="../loginPage/login-page-template.html"></object>';
     }
+<<<<<<< HEAD
 };
 
 loginPage.initialize();
 >>>>>>> got the login page to show,
+=======
+};
+>>>>>>> got login page to load from loginpage.js instead of index.js; added jquery
