@@ -248,3 +248,4 @@ ModelManifest.xml
 .fake/
 .vscode/launch.json
 *.lock
+App/platforms/android/.gradle/2.13/*
