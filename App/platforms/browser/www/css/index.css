@@ -113,17 +113,29 @@ div.HeaderImage {
     margin: auto;
     text-align:center;
     vertical-align:middle;
-    height: 40%;
-    width: 40%;
+    height: 45%;
+    width: 45%;
+}
+
+header {
+	width: 100%;
 }
 
 div.LoginPage{
     padding: 20px;
 }
 
+div.fullscreen{
+	position: fixed;;
+	width: 100%;
+	left: 0;
+	right: 0;
+	overflow: auto;
+}
+
 .input{
     font: 100%/1.4 Verdana, Arial, Helvetica, sans-serif;
-    font-size:80%;
+    font-size:90%;
     padding-bottom: 10px;
 }
 
@@ -133,6 +145,7 @@ table{
 }
 
 td{
-	text-align: right;
+	text-align: center;
 	vertical-align: bottom;
+	padding-bottom: 10px;
 }
