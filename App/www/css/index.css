@@ -37,11 +37,11 @@ body {
         color-stop(0.51, #E4E4E4)
     );
     background-attachment:fixed;
-
     font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
     **/
-    font: 100%/1.4 Verdana, Arial, Helvetica, sans-serif;
+    font: 100%/1.4 Verdana, Arial, Helvetica, sans-serif; /** "Arial Black", Gadget, sans-serif **/
     font-size:350%;
+    font-weight: bold;
     height:100%;
     margin: auto;
     padding:0px;
@@ -147,17 +147,29 @@ div.HeaderImage {
     margin: auto;
     text-align:center;
     vertical-align:middle;
-    height: 40%;
-    width: 40%;
+    height: 45%;
+    width: 45%;
+}
+
+header {
+	width: 100%;
 }
 
 div.LoginPage{
     padding: 20px;
 }
 
+div.fullscreen{
+	position: fixed;;
+	width: 100%;
+	left: 0;
+	right: 0;
+	overflow: auto;
+}
+
 .input{
     font: 100%/1.4 Verdana, Arial, Helvetica, sans-serif;
-    font-size:80%;
+    font-size:90%;
     padding-bottom: 10px;
 }
 
@@ -167,6 +179,7 @@ table{
 }
 
 td{
-	text-align: right;
+	text-align: center;
 	vertical-align: bottom;
+	padding-bottom: 10px;
 }
