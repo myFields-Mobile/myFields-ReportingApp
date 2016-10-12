@@ -40,8 +40,8 @@ body {
 
     font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
     **/
-    font: 100%/1.4 Verdana, Arial, Helvetica, sans-serif;
-    font-size:300%;
+    font: 100%/1.4 Verdana, Arial, Helvetica, sans-serif; /** "Arial Black", Gadget, sans-serif **/
+    font-size:350%;
     height:100%;
     margin: auto;
     padding:0px;
@@ -122,5 +122,22 @@ div.LoginPage{
 }
 
 .input{
+    font: 100%/1.4 Verdana, Arial, Helvetica, sans-serif;
+    font-size: 90%;
+    padding-bottom: 10px;
+}
 
+table {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+td{
+	text-align: center;
+	vertical-align: bottom;
+}
+
+a:link, a:visited{
+	color: #7799d1;
+	text-decoration: none;
 }

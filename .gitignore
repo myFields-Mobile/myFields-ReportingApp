@@ -247,3 +247,6 @@ ModelManifest.xml
 .fake/
 .vscode/launch.json
 *.lock
+
+# Browser platform assets
+App/browser/www/*
