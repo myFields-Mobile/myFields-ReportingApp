@@ -15,3 +15,5 @@ out
 /.gradle
 *.bin
 *.lock
+# Files that re-compile every time
+assets/www/css/*
