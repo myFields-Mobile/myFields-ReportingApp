@@ -14,7 +14,6 @@
 #Built objects
 *.bin
 *.lock
-/.gradle
 
 # Build results
 [Dd]ebug/
@@ -248,3 +247,6 @@ ModelManifest.xml
 .fake/
 .vscode/launch.json
 *.lock
+
+# Browser platform assets
+App/platforms/browser/www/*
