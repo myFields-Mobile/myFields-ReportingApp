@@ -249,4 +249,4 @@ ModelManifest.xml
 *.lock
 
 # Browser platform assets
-App/browser/www/*
+App/platforms/browser/www/*
