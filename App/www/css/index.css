@@ -41,7 +41,6 @@ body {
     **/
     font: 100%/1.4 Verdana, Arial, Helvetica, sans-serif; /** "Arial Black", Gadget, sans-serif **/
     font-size:350%;
-    font-weight: bold;
     height:100%;
     margin: auto;
     padding:0px;
@@ -181,5 +180,9 @@ table{
 td{
 	text-align: center;
 	vertical-align: bottom;
-	padding-bottom: 10px;
+}
+
+a:link, a:visited{
+	color: #7799d1;
+	text-decoration: none;
 }
