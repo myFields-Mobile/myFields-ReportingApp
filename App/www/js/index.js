@@ -41,7 +41,6 @@ var app = {
         console.log('Received Event: ' + id);
         // Load login page
         loginPage.initialize();
-        loginPage.renderView();
     }
 };
 
