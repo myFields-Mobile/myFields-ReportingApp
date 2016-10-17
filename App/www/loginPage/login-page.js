@@ -14,15 +14,25 @@ var loginPage = {
 
         // If authentication was successful
         var success = false;
+        // If user is admin/agent
+        var admin = false;
 
-        //Testing stuff
-        if ($('#emailBox').val() == "true" && $('#pwBox').val() == "true"){
+        //Testing stuff (everything inside here gets replaced with API logic)
+        if ($('#emailBox').val() == "admin" && $('#pwBox').val() == "password"){
             success = true;
+            admin = true;
         }
+        else if ($('#emailBox').val() == "user" && $('#pwBox').val() == "password"){
+            success = true;
+            admin = false;
+        }
+        //End of testing stuff
         if (success){
-            $('#view').load("../loginPage/TestPages/successfulLoginTest.html");
+            console.log('User logged in.');
+            menuPage.initialize(admin);
         }
         else {
+            console.log("Failed login attempt. User: " + $('#emailBox').val() + " at " + Date());
             alert("Unrecognized username or password. Please try again.");
         }
     },
