@@ -25,27 +25,11 @@ body {
     -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
     -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
     background-color:#dbcf97;
-    /**
-    background-image:linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
-    background-image:-webkit-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
-    background-image:-ms-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
-    background-image:-webkit-gradient(
-        linear,
-        left top,
-        left bottom,
-        color-stop(0, #A7A7A7),
-        color-stop(0.51, #E4E4E4)
-    );
-    background-attachment:fixed;
-
-    font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
-    **/
     font: 100%/1.4 Verdana, Arial, Helvetica, sans-serif; /** "Arial Black", Gadget, sans-serif **/
     font-size:350%;
     height:100%;
     margin: auto;
     padding:0px;
-    /**text-transform:uppercase;**/
     width:100%;
     text-align:center; vertical-align:middle;
 }
@@ -59,56 +43,30 @@ h1 {
     text-align:center;
 }
 
-.event {
-    border-radius:4px;
-    -webkit-border-radius:4px;
-    color:#FFFFFF;
-    font-size:12px;
-    margin:0px 30px;
-    padding:2px 0px;
-}
-
-@keyframes fade {
-    from { opacity: 1.0; }
-    50% { opacity: 0.4; }
-    to { opacity: 1.0; }
-}
- 
-@-webkit-keyframes fade {
-    from { opacity: 1.0; }
-    50% { opacity: 0.4; }
-    to { opacity: 1.0; }
-}
- 
-.blink {
-    animation:fade 3000ms infinite;
-    -webkit-animation:fade 3000ms infinite;
-}
-
-.button {
+button {
+    display: block;
+    width: 100%;
     background: #e6e5df;
     background-image: -webkit-linear-gradient(top, #e6e5df, #6a6b60);
     background-image: -moz-linear-gradient(top, #e6e5df, #6a6b60);
     background-image: -ms-linear-gradient(top, #e6e5df, #6a6b60);
     background-image: -o-linear-gradient(top, #e6e5df, #6a6b60);
     background-image: linear-gradient(to bottom, #e6e5df, #6a6b60);
-    -webkit-border-radius: 28;
-    -moz-border-radius: 28;
     border-radius: 28px;
     font-family: Arial;
     color: #000000;
-    font-size: 45px;
-    padding: 10px 20px 10px 20px;
+    font-size: 70px;
+    padding: 15px 20px 15px 20px;
     text-decoration: none;
 }
 
-.button:active {
+button:active {
     background-color: #3e8e41;
     box-shadow: 0 5px #666;
     transform: translateY(4px);
 }
 
-div.HeaderImage {
+.HeaderImage {
     content: url('../img/myFieldsLogo.png');
     margin: auto;
     text-align:center;
@@ -117,11 +75,24 @@ div.HeaderImage {
     width: 40%;
 }
 
-div.LoginPage{
+/** To add space between elements horizontally **/
+.dividerHorizontal{
+    width:5px;
+    height:auto;
+    display:inline-block;
+}
+
+/** To add space between elements vertically (wrap this around an element) **/
+.dividerVertical {
+	padding-bottom: 15px;
+    width:auto;
+}
+
+.LoginPage{
     padding: 20px;
 }
 
-.input{
+.loginInput{
     font: 100%/1.4 Verdana, Arial, Helvetica, sans-serif;
     font-size: 90%;
     padding-bottom: 10px;
