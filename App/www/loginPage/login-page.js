@@ -32,6 +32,7 @@ var loginPage = {
             menuPage.initialize(admin);
         }
         else {
+            console.log("Failed login attempt. User: " + $('#emailBox').val() + " at " + Date());
             alert("Unrecognized username or password. Please try again.");
         }
     },

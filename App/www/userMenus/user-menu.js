@@ -19,6 +19,9 @@ var menuPage = {
     // event handler for logout button
     onLogout: function(e) {
         e.preventDefault();
+        // TODO: probably need to do some cleanup in here, but for now just show login page
+        console.log("User logged out.");
+        loginPage.initialize();
     },
     // event handler for review report button
     onReviewReport: function(e) {
