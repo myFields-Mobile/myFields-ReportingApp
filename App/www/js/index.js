@@ -17,6 +17,9 @@
  * under the License.
  */
 
+// IP address/url for API
+var API = "http://myfields-api.azurewebsites.net/";
+
 var app = {
     // Application Constructor
     initialize: function() {

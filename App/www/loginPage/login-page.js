@@ -11,7 +11,25 @@ var loginPage = {
     onLogin: function(e) {
         e.preventDefault();
         // Call to authentication API goes here
-
+        $.ajax({
+            url: API + "api/authenticate",
+            data: JSON.stringify({
+                email: $('#emailBox').val(),
+                password: $('#pwBox').val()
+            }),
+            success: function() {
+                console.log('User logged in.');
+                menuPage.initialize(false);
+            },
+            error: function(error) {
+                console.log(error);
+                console.log("Failed login attempt. User: " + $('#emailBox').val() + " at " + Date());
+                alert("Unrecognized username or password. Please try again.");
+            },
+            method: "POST",
+            dataType: "json"
+        })
+        /*
         // If authentication was successful
         var success = false;
         // If user is admin/agent
@@ -35,6 +53,7 @@ var loginPage = {
             console.log("Failed login attempt. User: " + $('#emailBox').val() + " at " + Date());
             alert("Unrecognized username or password. Please try again.");
         }
+        */
     },
 
     renderView: function() {
