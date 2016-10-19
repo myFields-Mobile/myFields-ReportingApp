@@ -34,7 +34,8 @@ var loginPage = {
         var success = false;
         // If user is admin/agent
         var admin = false;
-
+        // TODO: remove testing stuff
+        // TODO: might need to get user data (more than just successful login) from database
         //Testing stuff (everything inside here gets replaced with API logic)
         if ($('#emailBox').val() == "admin" && $('#pwBox').val() == "password"){
             success = true;
