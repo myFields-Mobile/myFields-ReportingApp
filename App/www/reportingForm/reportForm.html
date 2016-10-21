@@ -12,12 +12,12 @@
 	<!--
 		Using a table to easily keep items together and aligned
 	!-->
-    <table class="definedWidth form">
+    <table class="space">
     <tr>
-        <td class="space rightAlign">
+        <td class="rightAlign">
             Crop:
         </td>
-        <td class="space">
+        <td>
         <select class="form-control" name="crop">
             <option value="crop1">crop1</option>
             <option value="crop2">crop2</option>
@@ -26,10 +26,10 @@
         </td>
     </tr>
     <tr>
-        <td class="space rightAlign">
+        <td class="rightAlign">
             Arthropod:
         </td>
-        <td class="space">
+        <td>
             <select class="form-control" name="arthropod">
                 <option value="arthropod1">arthropod1</option>
                 <option value="arthropod2">arthropod2</option>
@@ -37,13 +37,70 @@
             </select>
         </td>
     </tr>
+    </table>
+    <table style="width: 100%">
     <tr>
-        <td>
+        <td class="top leftAlign">
+            Disease(s):
+        </td>
+        <td class="bottom" style="margin-left: initial;">
+            <!--
+            <input id="disease1" type="checkbox" name="disease" value="disease1" />
+            <label for="disease1">disease1</label><br>
+            <input id="disease2" type="checkbox" name="disease" value="disease2" />
+            <label for="disease2">disease2</label><br />
+            <input id="disease3" type="checkbox" name="disease" value="disease3" />
+            <label for="disease3">disease3</label>
+            !-->
+            <div class="switch leftAlign">
+              <input id="cmn-toggle-7" class="cmn-toggle cmn-toggle-yes-no" type="checkbox">
+              <label for="cmn-toggle-7" data-on="Yes" data-off="No">disease1</label>
+            </div>
+    </tr>
+        <td class="top leftAlign">
+            Weed(s):
+        </td>
+        <td class="leftAlign bottom">
+            <!-- Insert check list here !-->
+            <input id="weed1" type="checkbox" name="weed" value="weed1" />
+            <label for="weed1">weed1</label><br />
+            <input id="weed2" type="checkbox" name="weed" value="weed2" />
+            <label for="weed2">weed2</label><br />
+            <input id="weed3" type="checkbox" name="weed" value="weed3" />
+            <label for="weed3">weed3</label>
+        </td>
+    </table>
+
+    <table class="space">
+    <tr>
+        <td class="leftAlign">
+            Comments:
         </td>
     </tr>
     <tr>
+        <td>
+            <textarea rows="6" name="comment" id="comment" placeholder="Enter comments..."></textarea>
+        </td>
     </tr>
     <tr>
+        <td>
+            <button class="normal">Select Location</button>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <button class="normal">Upload Picture</button>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <button class="normal">Submit</button>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="">Help</a>
+        </td>
     </tr>
     </table>
 
