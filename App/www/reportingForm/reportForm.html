@@ -37,40 +37,35 @@
             </select>
         </td>
     </tr>
-    </table>
-    <table class="switchCase">
     <tr>
         <div class="switchLabel">
-        <td class="top leftAlign">
+        <td class="top rightAlign">
             Disease(s):
         </td>
         </div>
-        <td class="bottom leftAlign" style="margin-left: initial;">
-
-            <input id="disease1" type="checkbox" name="disease" value="disease1" />
-            <label for="disease1">disease1</label><br>
-            <input id="disease2" type="checkbox" name="disease" value="disease2" />
-            <label for="disease2">disease2</label><br />
-            <input id="disease3" type="checkbox" name="disease" value="disease3" />
-            <label for="disease3">disease3</label>
-            <!--
-            <div class="switch leftAlign">
-              <input id="cmn-toggle-7" class="cmn-toggle cmn-toggle-yes-no" type="checkbox">
-              <label for="cmn-toggle-7" data-on="Yes" data-off="No">disease1</label>
+        <td>
+        	<select class="form-control" name="disease">
+                <option value="disease1">disease1</option>
+                <option value="disease2">disease2</option>
+                <option value="disease3">disease3</option>
+            </select>
+            <!-- Need javascript here to create more dropdown menus !-->
+            <div class="center">
+            <button class="addDropdown">Add another disease</button>
             </div>
-            --!>
+        </td>
     </tr>
-        <td class="top leftAlign">
+        <td class="top rightAlign">
             Weed(s):
         </td>
-        <td class="leftAlign bottom">
-            <!-- Insert check list here !-->
-            <input id="weed1" type="checkbox" name="weed" value="weed1" />
-            <label for="weed1">weed1</label><br />
-            <input id="weed2" type="checkbox" name="weed" value="weed2" />
-            <label for="weed2">weed2</label><br />
-            <input id="weed3" type="checkbox" name="weed" value="weed3" />
-            <label for="weed3">weed3</label>
+        <td>
+        	<select class="form-control" name="weed">
+                <option value="weed1">weed1</option>
+                <option value="weed2">weed2</option>
+                <option value="weed3">weed3</option>
+            </select>
+            <!-- Need javascript here to create more dropdown menus !-->
+            <button class="addDropdown">Add another weed</button>
         </td>
     </table>
 
