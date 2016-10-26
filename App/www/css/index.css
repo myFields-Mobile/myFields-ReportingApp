@@ -1,21 +1,3 @@
-/*
- * Licensed to the Apache Software Foundation (ASF) under one
- * or more contributor license agreements.  See the NOTICE file
- * distributed with this work for additional information
- * regarding copyright ownership.  The ASF licenses this file
- * to you under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on an
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied.  See the License for the
- * specific language governing permissions and limitations
- * under the License.
- */
 * {
     -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
 }
@@ -42,7 +24,7 @@ h1 {
     text-align:center;
 }
 
-button {
+button.normal {
     display: block;
     width: 100%;
     background: #e6e5df;
@@ -103,22 +85,30 @@ input{
     padding-bottom: 10px;
 }
 
-table {
+input[type=checkbox]{
+  -ms-transform: scale(4); /* IE */
+  -moz-transform: scale(4); /* FF */
+  -webkit-transform: scale(4); /* Safari and Chrome */
+  -o-transform: scale(4); /* Opera */
+  padding: 10px;
+}
+
+table.normal {
     margin-left: auto;
     margin-right: auto;
+}
+
+table.switchCase{
+  width: 100%;
 }
 
 table.definedWidth{
     width: 80%;
 }
 
-table.form{
-    border-collapse: collapse;
-}
-
-td{
-	text-align: center;
-	vertical-align: bottom;
+table.space{
+    border-collapse: separate;
+    border-spacing: .25em .5em;
 }
 
 td.space{
@@ -132,6 +122,17 @@ td.leftAlign{
 td.rightAlign{
     text-align: right;
     padding-right: 15px;
+}
+
+td.top {
+	vertical-align: top;
+}
+
+td.bottom{
+	vertical-align: bottom;
+}
+div.switchLabel{
+  column-width: 25%;
 }
 
 textarea {
@@ -154,8 +155,8 @@ a:link, a:visited{
 
 .form-control {
     display: inline-block;
-    width: 100%;
-    height: 110%;
+    width: 115%;
+    height: 115%;
     padding: 6px 12px;
     font-size: 100%;
     line-height: 100%;
@@ -164,4 +165,57 @@ a:link, a:visited{
     background-image: none;
     border: 1px solid #ccc;
     border-radius: 4px;
+}
+
+.cmn-toggle {
+  position: absolute;
+  margin-left: -9999px;
+  visibility: hidden;
+}
+.cmn-toggle + label {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  outline: none;
+  user-select: none;
+}
+
+input.cmn-toggle-yes-no + label {
+  padding: 2px;
+  width: 150px;
+  height: 75px;
+}
+input.cmn-toggle-yes-no + label:before,
+input.cmn-toggle-yes-no + label:after {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  color: #fff;
+  font-family: "Roboto Slab", serif;
+  font-size: 80%;
+  text-align: center;
+  line-height: 60px;
+  vertical-align: middle;
+}
+input.cmn-toggle-yes-no + label:before {
+  background-color: #dddddd;
+  content: attr(data-off);
+  transition: transform 0.5s;
+  backface-visibility: hidden;
+}
+input.cmn-toggle-yes-no + label:after {
+  background-color: #8ce196;
+  content: attr(data-on);
+  transition: transform 0.5s;
+  transform: rotateY(180deg);
+  backface-visibility: hidden;
+}
+input.cmn-toggle-yes-no:checked + label:before {
+  transform: rotateY(180deg);
+}
+input.cmn-toggle-yes-no:checked + label:after {
+  transform: rotateY(0);
 }
