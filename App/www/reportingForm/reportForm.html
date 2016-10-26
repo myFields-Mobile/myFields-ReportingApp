@@ -12,7 +12,7 @@
 	<!--
 		Using a table to easily keep items together and aligned
 	!-->
-    <table class="space">
+    <table class="space normal">
     <tr>
         <td class="rightAlign">
             Crop:
@@ -38,24 +38,27 @@
         </td>
     </tr>
     </table>
-    <table style="width: 100%">
+    <table class="switchCase">
     <tr>
+        <div class="switchLabel">
         <td class="top leftAlign">
             Disease(s):
         </td>
-        <td class="bottom" style="margin-left: initial;">
-            <!--
+        </div>
+        <td class="bottom leftAlign" style="margin-left: initial;">
+
             <input id="disease1" type="checkbox" name="disease" value="disease1" />
             <label for="disease1">disease1</label><br>
             <input id="disease2" type="checkbox" name="disease" value="disease2" />
             <label for="disease2">disease2</label><br />
             <input id="disease3" type="checkbox" name="disease" value="disease3" />
             <label for="disease3">disease3</label>
-            !-->
+            <!--
             <div class="switch leftAlign">
               <input id="cmn-toggle-7" class="cmn-toggle cmn-toggle-yes-no" type="checkbox">
               <label for="cmn-toggle-7" data-on="Yes" data-off="No">disease1</label>
             </div>
+            --!>
     </tr>
         <td class="top leftAlign">
             Weed(s):
@@ -71,7 +74,7 @@
         </td>
     </table>
 
-    <table class="space">
+    <table class="space normal">
     <tr>
         <td class="leftAlign">
             Comments:

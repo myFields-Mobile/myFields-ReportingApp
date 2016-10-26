@@ -93,9 +93,13 @@ input[type=checkbox]{
   padding: 10px;
 }
 
-table {
+table.normal {
     margin-left: auto;
     margin-right: auto;
+}
+
+table.switchCase{
+  width: 100%;
 }
 
 table.definedWidth{
@@ -126,6 +130,9 @@ td.top {
 
 td.bottom{
 	vertical-align: bottom;
+}
+div.switchLabel{
+  column-width: 25%;
 }
 
 textarea {
