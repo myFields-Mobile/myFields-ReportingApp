@@ -41,6 +41,24 @@ button.normal {
     text-decoration: none;
 }
 
+button.addDropdown{
+  margin-top: 15px;
+  display: block;
+  width: 100%;
+  background: #e6e5df;
+  background-image: -webkit-linear-gradient(top, #e6e5df, #6a6b60);
+  background-image: -moz-linear-gradient(top, #e6e5df, #6a6b60);
+  background-image: -ms-linear-gradient(top, #e6e5df, #6a6b60);
+  background-image: -o-linear-gradient(top, #e6e5df, #6a6b60);
+  background-image: linear-gradient(to bottom, #e6e5df, #6a6b60);
+  border-radius: 28px;
+  font-family: Arial;
+  color: #000000;
+  font-size: 35px;
+  padding: 15px 25px 15px 25px;
+  text-decoration: none;
+}
+
 button:active {
     background-color: #3e8e41;
     box-shadow: 0 5px #666;
