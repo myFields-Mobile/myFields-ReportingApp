@@ -57,6 +57,7 @@ button.addDropdown{
   font-size: 35px;
   padding: 15px 25px 15px 25px;
   text-decoration: none;
+  position: relative;
 }
 
 button:active {
@@ -149,8 +150,14 @@ td.top {
 td.bottom{
 	vertical-align: bottom;
 }
+
 div.switchLabel{
   column-width: 25%;
+}
+
+div.center{
+  display: block;
+  margin: auto;
 }
 
 textarea {
@@ -183,57 +190,4 @@ a:link, a:visited{
     background-image: none;
     border: 1px solid #ccc;
     border-radius: 4px;
-}
-
-.cmn-toggle {
-  position: absolute;
-  margin-left: -9999px;
-  visibility: hidden;
-}
-.cmn-toggle + label {
-  display: block;
-  position: relative;
-  cursor: pointer;
-  outline: none;
-  user-select: none;
-}
-
-input.cmn-toggle-yes-no + label {
-  padding: 2px;
-  width: 150px;
-  height: 75px;
-}
-input.cmn-toggle-yes-no + label:before,
-input.cmn-toggle-yes-no + label:after {
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  color: #fff;
-  font-family: "Roboto Slab", serif;
-  font-size: 80%;
-  text-align: center;
-  line-height: 60px;
-  vertical-align: middle;
-}
-input.cmn-toggle-yes-no + label:before {
-  background-color: #dddddd;
-  content: attr(data-off);
-  transition: transform 0.5s;
-  backface-visibility: hidden;
-}
-input.cmn-toggle-yes-no + label:after {
-  background-color: #8ce196;
-  content: attr(data-on);
-  transition: transform 0.5s;
-  transform: rotateY(180deg);
-  backface-visibility: hidden;
-}
-input.cmn-toggle-yes-no:checked + label:before {
-  transform: rotateY(180deg);
-}
-input.cmn-toggle-yes-no:checked + label:after {
-  transform: rotateY(0);
 }
