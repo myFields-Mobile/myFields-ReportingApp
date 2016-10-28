@@ -5,6 +5,8 @@ var reportForm = {
     },
     // Register submit button to event handler
     bindEvents: function() {
+        $('#addDiseaseButton').on('click', this.addDisease);
+        $('#addWeedButton').on('click', this.addWeed)
     	$('#submitButton').on('click', this.onSubmit);
     },
 
@@ -12,9 +14,17 @@ var reportForm = {
     // TODO: Populate arthropod options based on database info
     // TODO: Populate disease options based on database info
     // TODO: Populate weed options based on database info
+    
 
     // TODO: Add functionality for making another dropdown for diseases
+    addDisease: function(){
+
+    },
+
     // TODO: Add functionality for making another dropdown for weeds
+    addWeed: function(){
+
+    },
 
     onSubmit: function(e){
     	e.PreventDefault();
@@ -40,7 +50,7 @@ var reportForm = {
 
 
     renderView: function() {
-        $('#view').load("../form/reportForm.html", function(){
+        $('#view').load("../reportingForm/reportForm.html", function(){
             reportForm.bindEvents();
         });
     }
