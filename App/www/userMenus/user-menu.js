@@ -11,6 +11,7 @@ var menuPage = {
         if (this.isAdmin){
             $('#reviewReportButton').on('click', this.onReviewReport);
         }
+        $('#helpLink').on('click', this.onHelp);
     },
     // event handler for report button
     onReport: function(e) {
@@ -27,6 +28,11 @@ var menuPage = {
     onReviewReport: function(e) {
         e.preventDefault();
     },
+    // event handler for help link
+    onHelp(){
+        contactUs.initialize();
+    },
+
     // renders the page and calls bindEvents
     renderView: function() {
         if (this.isAdmin){
