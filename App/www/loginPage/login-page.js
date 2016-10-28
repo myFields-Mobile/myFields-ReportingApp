@@ -1,3 +1,5 @@
+var loggedInUser;
+
 var loginPage = {
     // LoginPage constructor
     initialize: function() {
@@ -18,9 +20,11 @@ var loginPage = {
                 email: $('#emailBox').val(),
                 password: $('#pwBox').val()
             },
-            success: function() {
+            success: function(data) {
                 console.log('User logged in.');
+                loggedInUser = data;
                 menuPage.initialize(false);
+
             },
             error: function(error) {
                 console.log(error);
