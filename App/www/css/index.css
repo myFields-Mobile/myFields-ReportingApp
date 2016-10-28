@@ -1,21 +1,3 @@
-/*
- * Licensed to the Apache Software Foundation (ASF) under one
- * or more contributor license agreements.  See the NOTICE file
- * distributed with this work for additional information
- * regarding copyright ownership.  The ASF licenses this file
- * to you under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on an
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied.  See the License for the
- * specific language governing permissions and limitations
- * under the License.
- */
 * {
     -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
 }
@@ -42,7 +24,7 @@ h1 {
     text-align:center;
 }
 
-button {
+button.normal {
     display: block;
     width: 100%;
     background: #e6e5df;
@@ -57,6 +39,25 @@ button {
     font-size: 70px;
     padding: 15px 25px 15px 25px;
     text-decoration: none;
+}
+
+button.addDropdown{
+  margin-top: 15px;
+  display: block;
+  width: 100%;
+  background: #e6e5df;
+  background-image: -webkit-linear-gradient(top, #e6e5df, #6a6b60);
+  background-image: -moz-linear-gradient(top, #e6e5df, #6a6b60);
+  background-image: -ms-linear-gradient(top, #e6e5df, #6a6b60);
+  background-image: -o-linear-gradient(top, #e6e5df, #6a6b60);
+  background-image: linear-gradient(to bottom, #e6e5df, #6a6b60);
+  border-radius: 28px;
+  font-family: Arial;
+  color: #000000;
+  font-size: 35px;
+  padding: 15px 25px 15px 25px;
+  text-decoration: none;
+  position: relative;
 }
 
 button:active {
@@ -103,22 +104,30 @@ input{
     padding-bottom: 10px;
 }
 
-table {
+input[type=checkbox]{
+  -ms-transform: scale(4); /* IE */
+  -moz-transform: scale(4); /* FF */
+  -webkit-transform: scale(4); /* Safari and Chrome */
+  -o-transform: scale(4); /* Opera */
+  padding: 10px;
+}
+
+table.normal {
     margin-left: auto;
     margin-right: auto;
+}
+
+table.switchCase{
+  width: 100%;
 }
 
 table.definedWidth{
     width: 80%;
 }
 
-table.form{
-    border-collapse: collapse;
-}
-
-td{
-	text-align: center;
-	vertical-align: bottom;
+table.space{
+    border-collapse: separate;
+    border-spacing: .25em .5em;
 }
 
 td.space{
@@ -132,6 +141,23 @@ td.leftAlign{
 td.rightAlign{
     text-align: right;
     padding-right: 15px;
+}
+
+td.top {
+	vertical-align: top;
+}
+
+td.bottom{
+	vertical-align: bottom;
+}
+
+div.switchLabel{
+  column-width: 25%;
+}
+
+div.center{
+  display: block;
+  margin: auto;
 }
 
 textarea {
@@ -154,8 +180,8 @@ a:link, a:visited{
 
 .form-control {
     display: inline-block;
-    width: 100%;
-    height: 110%;
+    width: 115%;
+    height: 115%;
     padding: 6px 12px;
     font-size: 100%;
     line-height: 100%;
