@@ -40,7 +40,7 @@ var reportForm = {
 
 
     renderView: function() {
-        $('#view').load("../form/reportForm.html", function(){
+        $('#view').load("../reportingForm/reportForm.html", function(){
             reportForm.bindEvents();
         });
     }
