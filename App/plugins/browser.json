@@ -9,7 +9,14 @@
     "installed_plugins": {
         "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "myFields.Reporting"
+        },
+        "cordova-plugin-geolocation": {
+            "PACKAGE_NAME": "myFields.Reporting"
         }
     },
-    "dependent_plugins": {}
+    "dependent_plugins": {
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "myFields.Reporting"
+        }
+    }
 }
