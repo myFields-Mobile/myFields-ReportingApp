@@ -34,24 +34,37 @@ var reportForm = {
     onPicture: function(){
 
     },
+
     // Event handler for get location
     onLocation: function(){
-        navigator.geolocation.getCurrentPosition(getLocationSuccess, getLocationFailure);
-        console.log(reportForm.location);
-    },
 
-    // On successful geolocation.getCurrentPosition, store the location data in reportForm.location
-    getLocationSuccess: function(position){
-        reportForm.location = {
-            Latitude: position.coords.latitude,
-            Longitude: position.coords.Llongitude
-        }
-    },
+        // TODO: Might wan to add some map functionality - can use docs found here: https://cordova.apache.org/docs/en/latest/reference/cordova-plugin-geolocation/index.html#see-where-you-are-on-a-map
 
-    // On failed geolocation.getCurrentPosition, reportForm.location = undefined
-    getLocationFailure: function(){
-        alert("Failed getting location data.");
-        reportForm.location = undefined;
+        navigator.geolocation.getCurrentPosition(
+            function(position){
+                reportForm.location = {
+                    Latitude: position.coords.latitude,
+                    Longitude: position.coords.longitude
+                }
+                console.log("Successfully got location: " + reportForm.location.Latitude + " , " + reportForm.location.Longitude);
+            }, 
+            // On failed geolocation.getCurrentPosition, reportForm.location = undefined
+            function(error){
+                if (error.code == PositionError.PERMISSION_DENIED){
+                    console.log("Location permission denied.");
+                    alert("App does not have permission to access location. Please check settings.");
+                }
+                else if (error.code == PositionError.POSITION_UNAVAILABLE){
+                    console.log("Unable to connect to location service.");
+                    alert("Unable to connect to location service.")
+                }
+                else {
+                    console.log("Failed getting location data: generic error");
+                    alert("Failed getting location data.");
+                }
+                reportForm.location = undefined;
+            }
+        );
     },
 
     // Event handler for submit button
