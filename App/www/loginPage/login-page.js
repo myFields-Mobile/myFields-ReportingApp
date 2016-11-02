@@ -1,4 +1,6 @@
+// Global variable for authenticated user's JWT token
 var userJWT;
+// Global variable to store currently logged in user
 var loggedInUser;
 
 var loginPage = {
@@ -23,6 +25,7 @@ var loginPage = {
             },
             success: function(data) {
                 userJWT = data.token;
+                // On successful authentication, get the authenticated user
                 $.ajax({
                     url: API + "api/user/me",
                     data: {
