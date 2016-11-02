@@ -1,11 +1,21 @@
 var reportForm = {
     // Field used to store location retrieved by Get Location button.
     location: undefined,
+    
+    // Field used to store crops 
+    crops: ["Wheat", "Corn"],
+
 	// reportForm constructor
     initialize: function() {
         this.renderView();
     },
-    // Register submit button to event handler
+
+    // Populate form data
+    populateForm: function() {
+
+    },
+
+    // Register event handlers
     bindEvents: function() {
         $('#addDiseaseButton').on('click', this.addDisease);
         $('#addWeedButton').on('click', this.addWeed);
@@ -38,7 +48,7 @@ var reportForm = {
     // Event handler for get location
     onLocation: function(){
 
-        // TODO: Might wan to add some map functionality - can use docs found here: https://cordova.apache.org/docs/en/latest/reference/cordova-plugin-geolocation/index.html#see-where-you-are-on-a-map
+        // TODO: Might want to add some map functionality - can use docs found here: https://cordova.apache.org/docs/en/latest/reference/cordova-plugin-geolocation/index.html#see-where-you-are-on-a-map
 
         navigator.geolocation.getCurrentPosition(
             function(position){

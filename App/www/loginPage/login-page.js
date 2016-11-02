@@ -1,3 +1,4 @@
+var userJWT;
 var loggedInUser;
 
 var loginPage = {
@@ -21,10 +22,18 @@ var loginPage = {
                 password: $('#pwBox').val()
             },
             success: function(data) {
-                console.log('User logged in.');
-                loggedInUser = data;
+                userJWT = data.token;
+                $.ajax({
+                    url: API + "api/user/me",
+                    data: {
+                        token: userJWT
+                    },
+                    success: function(data) {
+                        console.log(data.firstName + " " + data.lastName + " logged in.");
+                        loggedInUser = data;
+                    }
+                })
                 menuPage.initialize(false);
-
             },
             error: function(error) {
                 console.log(error);
