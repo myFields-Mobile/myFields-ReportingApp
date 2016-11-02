@@ -46,10 +46,7 @@ var loginPage = {
             method: "POST",
             dataType: "json"
         })
-        /*
         // TODO: remove testing stuff
-        // TODO: might need to get user data (more than just successful login) from database
-        */
     },
 
     onCreateAccount: function(e){
