@@ -1,4 +1,6 @@
 var reportForm = {
+    // Field used to store location retrieved by Get Location button.
+    location: undefined,
 	// reportForm constructor
     initialize: function() {
         this.renderView();
@@ -6,7 +8,10 @@ var reportForm = {
     // Register submit button to event handler
     bindEvents: function() {
         $('#addDiseaseButton').on('click', this.addDisease);
-        $('#addWeedButton').on('click', this.addWeed)
+        $('#addWeedButton').on('click', this.addWeed);
+        $('#pictureButton').on('click', this.onPicture);
+        $('#locationButton').on('click', this.onLocation);
+        $('#helpLink').on('click', this.onHelp);
     	$('#submitButton').on('click', this.onSubmit);
     },
 
@@ -26,8 +31,49 @@ var reportForm = {
 
     },
 
+    onPicture: function(){
+
+    },
+
+    // Event handler for get location
+    onLocation: function(){
+
+        // TODO: Might wan to add some map functionality - can use docs found here: https://cordova.apache.org/docs/en/latest/reference/cordova-plugin-geolocation/index.html#see-where-you-are-on-a-map
+
+        navigator.geolocation.getCurrentPosition(
+            function(position){
+                reportForm.location = {
+                    Latitude: position.coords.latitude,
+                    Longitude: position.coords.longitude
+                }
+                console.log("Successfully got location: " + reportForm.location.Latitude + " , " + reportForm.location.Longitude);
+            }, 
+            // On failed geolocation.getCurrentPosition, reportForm.location = undefined
+            function(error){
+                if (error.code == PositionError.PERMISSION_DENIED){
+                    console.log("Location permission denied.");
+                    alert("App does not have permission to access location. Please check settings.");
+                }
+                else if (error.code == PositionError.POSITION_UNAVAILABLE){
+                    console.log("Unable to connect to location service.");
+                    alert("Unable to connect to location service.")
+                }
+                else {
+                    console.log("Failed getting location data: generic error");
+                    alert("Failed getting location data.");
+                }
+                reportForm.location = undefined;
+            }
+        );
+    },
+
+    // Event handler for submit button
     onSubmit: function(e){
     	e.PreventDefault();
+
+        if (location == undefined){
+            alert("Please capture GPS location before submitting.");
+        }
 
     	// get selected crop
     	var c = document.getElementById("crop");
