@@ -1,4 +1,6 @@
 var reportForm = {
+    // Field used to store location retrieved by Get Location button.
+    location: undefined,
 	// reportForm constructor
     initialize: function() {
         this.renderView();
@@ -6,7 +8,10 @@ var reportForm = {
     // Register submit button to event handler
     bindEvents: function() {
         $('#addDiseaseButton').on('click', this.addDisease);
-        $('#addWeedButton').on('click', this.addWeed)
+        $('#addWeedButton').on('click', this.addWeed);
+        $('#pictureButton').on('click', this.onPicture);
+        $('#locationButton').on('click', this.onLocation);
+        $('#helpLink').on('click', this.onHelp);
     	$('#submitButton').on('click', this.onSubmit);
     },
 
@@ -26,8 +31,36 @@ var reportForm = {
 
     },
 
+    onPicture: function(){
+
+    },
+    // Event handler for get location
+    onLocation: function(){
+        navigator.geolocation.getCurrentPosition(getLocationSuccess, getLocationFailure);
+        console.log(reportForm.location);
+    },
+
+    // On successful geolocation.getCurrentPosition, store the location data in reportForm.location
+    getLocationSuccess: function(position){
+        reportForm.location = {
+            Latitude: position.coords.latitude,
+            Longitude: position.coords.Llongitude
+        }
+    },
+
+    // On failed geolocation.getCurrentPosition, reportForm.location = undefined
+    getLocationFailure: function(){
+        alert("Failed getting location data.");
+        reportForm.location = undefined;
+    },
+
+    // Event handler for submit button
     onSubmit: function(e){
     	e.PreventDefault();
+
+        if (location == undefined){
+            alert("Please capture GPS location before submitting.");
+        }
 
     	// get selected crop
     	var c = document.getElementById("crop");
