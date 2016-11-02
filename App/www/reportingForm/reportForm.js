@@ -7,12 +7,20 @@ var reportForm = {
 
 	// reportForm constructor
     initialize: function() {
+        this.populateForm();
         this.renderView();
     },
 
     // Populate form data
     populateForm: function() {
-
+        // Get crops
+        $.ajax({
+            url: API + "api/crop",
+            data: userJWT,
+            success: function(data){
+                console.log(data);
+            }
+        })
     },
 
     // Register event handlers
