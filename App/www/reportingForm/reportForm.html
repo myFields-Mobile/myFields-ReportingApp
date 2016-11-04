@@ -16,10 +16,12 @@
             Crop:
         </td>
         <td>
-        <select class="form-control" name="crop" id="crop">
+        <select class="form-control" name="crop" id="cropDropdown">
+            <!--
             <option value="crop1">crop1</option>
             <option value="crop2">crop2</option>
             <option value="crop3">crop3</option>
+            !-->
         </select>
         </td>
     </tr>
@@ -28,11 +30,16 @@
             Arthropod:
         </td>
         <td>
-            <select class="form-control" name="arthropod" id="arthropod">
+        <div id="arthropodSelection">
+            <select class="form-control" name="arthropod" id="arthropodDropdown">
                 <option value="arthropod1">arthropod1</option>
                 <option value="arthropod2">arthropod2</option>
                 <option value="arthropod3">arthropod3</option>
             </select>
+        </div>
+            <div class="center">
+            <button class="addDropdown" id="addArthropodButton">Add another arthropod</button>
+            </div>
         </td>
     </tr>
     <tr>
@@ -48,7 +55,6 @@
             </select>
         </div>
             <!-- Need javascript here to create more dropdown menus !-->
-            <div id='newDropDownArea'></div>
             <div class="center">
             <button class="addDropdown" id="addDiseaseButton">Add another disease</button>
             </div>

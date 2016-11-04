@@ -7,8 +7,8 @@ var reportForm = {
 
 	// reportForm constructor
     initialize: function() {
-        this.populateForm();
         this.renderView();
+        this.populateForm();
     },
 
     // Populate form data
@@ -20,13 +20,15 @@ var reportForm = {
             success: function(data){
                 console.log(data);
             }
-        })
+        });
+
     },
 
     // Register event handlers
     bindEvents: function() {
         $('#addDiseaseButton').on('click', this.addDisease);
         $('#addWeedButton').on('click', this.addWeed);
+        $('#addArthropodButton').on('click', this.addArthropod);
         $('#pictureButton').on('click', this.onPicture);
         $('#locationButton').on('click', this.onLocation);
         $('#helpLink').on('click', this.onHelp);
@@ -38,11 +40,25 @@ var reportForm = {
     // TODO: Populate disease options based on database info
     // TODO: Populate weed options based on database info
     
+    /**
+     * Adds an arthropod dropdown when the button "Add another athropod" is clicked
+     */
+    addArthropod: function(){
+        var newDiseaseDropdown = document.getElementById('arthropodDropdown').cloneNode(true);
+        document.getElementById('arthropodSelection').appendChild(newDiseaseDropdown);
+    },
+
+    /**
+     * Adds an disease dropdown when the button "Add another disease" is clicked
+     */
     addDisease: function(){
         var newDiseaseDropdown = document.getElementById('diseaseDropdown').cloneNode(true);
         document.getElementById('diseaseSelection').appendChild(newDiseaseDropdown);
     },
 
+    /**
+     * Adds an weed dropdown when the button "Add another weed" is clicked
+     */
     addWeed: function(){
         var newDiseaseDropdown = document.getElementById('weedDropdown').cloneNode(true);
         document.getElementById('weedSelection').appendChild(newDiseaseDropdown);
@@ -84,7 +100,10 @@ var reportForm = {
         );
     },
 
-    // Event handler for submit button
+    /**
+     * Event handler for when the "Submit" button is hit. Gets the information
+     * and sends stores it to a table on the database
+     */
     onSubmit: function(e){
     	e.PreventDefault();
 
