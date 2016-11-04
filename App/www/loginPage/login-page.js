@@ -1,3 +1,6 @@
+// Global variable for authenticated user's JWT token
+var userJWT;
+// Global variable to store currently logged in user
 var loggedInUser;
 
 var loginPage = {
@@ -21,10 +24,19 @@ var loginPage = {
                 password: $('#pwBox').val()
             },
             success: function(data) {
-                console.log('User logged in.');
-                loggedInUser = data;
+                userJWT = data.token;
+                // On successful authentication, get the authenticated user
+                $.ajax({
+                    url: API + "api/user/me",
+                    data: {
+                        token: userJWT
+                    },
+                    success: function(data) {
+                        console.log(data.firstName + " " + data.lastName + " logged in.");
+                        loggedInUser = data;
+                    }
+                })
                 menuPage.initialize(false);
-
             },
             error: function(error) {
                 console.log(error);
@@ -34,10 +46,7 @@ var loginPage = {
             method: "POST",
             dataType: "json"
         })
-        /*
         // TODO: remove testing stuff
-        // TODO: might need to get user data (more than just successful login) from database
-        */
     },
 
     onCreateAccount: function(e){
