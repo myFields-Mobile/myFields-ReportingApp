@@ -38,15 +38,14 @@ var reportForm = {
     // TODO: Populate disease options based on database info
     // TODO: Populate weed options based on database info
     
-
-    // TODO: Add functionality for making another dropdown for diseases
     addDisease: function(){
-
+        var newDiseaseDropdown = document.getElementById('diseaseDropdown').cloneNode(true);
+        document.getElementById('diseaseSelection').appendChild(newDiseaseDropdown);
     },
 
-    // TODO: Add functionality for making another dropdown for weeds
     addWeed: function(){
-
+        var newDiseaseDropdown = document.getElementById('weedDropdown').cloneNode(true);
+        document.getElementById('weedSelection').appendChild(newDiseaseDropdown);
     },
 
     onPicture: function(){
