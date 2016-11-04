@@ -1,24 +1,27 @@
 var reportForm = {
     // Field used to store location retrieved by Get Location button.
     location: undefined,
-    
-    // Field used to store crops 
-    crops: ["Wheat", "Corn"],
 
 	// reportForm constructor
     initialize: function() {
-        this.populateForm();
         this.renderView();
     },
 
     // Populate form data
-    populateForm: function() {
+    populateForm: function(cb) {
         // Get crops
         $.ajax({
             url: API + "api/crop",
             data: userJWT,
             success: function(data){
-                console.log(data);
+                var cropSelection = $('#crop');
+                cropSelection.length = 0;
+                for(var i = 0; i < data.length; i++)
+                {
+                    if (data[i].active){
+                        cropSelection.append($('<option>').text(data[i].name).val(data[i].name));
+                    }
+                }
             }
         })
     },
@@ -114,6 +117,7 @@ var reportForm = {
 
     renderView: function() {
         $('#view').load("../reportingForm/reportForm.html", function(){
+            reportForm.populateForm();
             reportForm.bindEvents();
         });
     }
