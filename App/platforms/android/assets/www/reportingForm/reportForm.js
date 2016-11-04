@@ -18,7 +18,39 @@ var reportForm = {
 
     // TODO: Add functionality for making another dropdown for diseases
     addDisease: function(){
+        // Get the main Div in which all the other divs will be added
+        //var newDropDownArea = document.getElementById('newDropDownArea');
 
+        // Create a new div for holding text and button input elements
+        //var newDiv = document.createElement('div');
+
+        // Create a new text input
+        //var newDropdown = document.createElement('select');
+
+        //newDropdownOption = document.createElement("option");
+        //newDropdownOption.value = "value1";
+        //newDropdownOption.text = "option 1";
+
+        //newDropdown.add(newDropdownOption);
+
+        // Create buttons for creating and removing inputs
+        //var newAddButton = document.createElement('input');
+        //newAddButton.type = "button";
+        //newAddButton.value = " + ";
+
+        // Append new text input to the newDiv
+        //newDiv.appendChild(newDropdown);
+
+        // Append new button inputs to the newDiv
+        //newDiv.appendChild(newAddButton);
+
+        // Append newDiv input to the newDropDownArea div
+        //newDropDownArea.appendChild(newDiv);
+
+        // Add a handler to button for deleting the newDiv from the newDropDownArea
+        //newAddButton.onclick = addNew;
+        var newDiseaseDropdown = document.getElementById('diseaseDropdown').cloneNode(true);
+        document.getElementById('diseaseArea').appendChild(newDiseaseDropdown);
     },
 
     // TODO: Add functionality for making another dropdown for weeds

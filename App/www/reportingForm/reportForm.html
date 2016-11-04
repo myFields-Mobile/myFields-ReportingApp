@@ -40,12 +40,15 @@
             Disease(s):
         </td>
         <td>
-        	<select class="form-control" name="disease">
+        <div id="diseaseSelection">
+        	<select class="form-control" name="disease" id="diseaseDropdown">
                 <option value="disease1">disease1</option>
                 <option value="disease2">disease2</option>
                 <option value="disease3">disease3</option>
             </select>
+        </div>
             <!-- Need javascript here to create more dropdown menus !-->
+            <div id='newDropDownArea'></div>
             <div class="center">
             <button class="addDropdown" id="addDiseaseButton">Add another disease</button>
             </div>
@@ -55,11 +58,13 @@
             Weed(s):
         </td>
         <td>
-        	<select class="form-control" name="weed">
+        <div id="weedSelection">
+        	<select class="form-control" name="weed" id="weedDropdown">
                 <option value="weed1">weed1</option>
                 <option value="weed2">weed2</option>
                 <option value="weed3">weed3</option>
             </select>
+        </div>
             <!-- Need javascript here to create more dropdown menus !-->
             <button class="addDropdown" id="addWeedButton">Add another weed</button>
         </td>
