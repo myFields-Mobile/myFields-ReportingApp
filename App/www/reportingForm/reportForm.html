@@ -17,6 +17,7 @@
         </td>
         <td>
         <select class="form-control" name="crop" id="crop">
+            <option value="alfalfa">Alfalfa</option>
             <option value="wheat">Wheat</option>
             <option value="corn">Corn</option>
             <option value="cotton">Cotton</option>
@@ -24,15 +25,20 @@
         </td>
     </tr>
     <tr>
-        <td class="rightAlign">
+        <td class="top rightAlign">
             Arthropod:
         </td>
         <td>
-            <select class="form-control" name="arthropod" id="arthropod">
-                <option value="arthropod1">arthropod1</option>
-                <option value="arthropod2">arthropod2</option>
-                <option value="arthropod3">arthropod3</option>
+        <div id="arthropodSelection">
+            <select class="form-control" name="arthropod" id="arthropodDropdown">
+                <option value="aphids">Aphids</option>
+                <option value="grubs">Grubs</option>
+                <option value="maggots">Maggots</option>
             </select>
+        </div>
+            <div class="center">
+            <button class="addDropdown" id="addArthropodButton">Add another arthropod</button>
+            </div>
         </td>
     </tr>
     <tr>
@@ -42,13 +48,14 @@
         <td>
         <div id="diseaseSelection">
         	<select class="form-control" name="disease" id="diseaseDropdown">
-                <option value="disease1">disease1</option>
-                <option value="disease2">disease2</option>
-                <option value="disease3">disease3</option>
+                <option value="anthracnoseLeafBlight">Anthracnose Leaf Blight</option>
+                <option value="anthracnoseStalkRot">Anthracnose Stalk Rot</option>
+                <option value="aspergillusEarRot">AspergillusEarRot</option>
+                <option value="bacterialBlight">Bacterial Blight</option>
+                <option value="charcoalRot">Charcoal Rot</option>
             </select>
         </div>
             <!-- Need javascript here to create more dropdown menus !-->
-            <div id='newDropDownArea'></div>
             <div class="center">
             <button class="addDropdown" id="addDiseaseButton">Add another disease</button>
             </div>
@@ -60,9 +67,15 @@
         <td>
         <div id="weedSelection">
         	<select class="form-control" name="weed" id="weedDropdown">
-                <option value="weed1">weed1</option>
-                <option value="weed2">weed2</option>
-                <option value="weed3">weed3</option>
+                <option value="broadleaf">Broadleaf</option>
+                <option value="grass">Grass</option>
+                <option value="annualBroadleafWeeds">Annual Broadleaf Weeds</option>
+                <option value="annualGrasses">Annual Grasses</option>
+                <option value="perennials">Perennials</option>
+                <option value="summerAnnualBroadleaf">Summer Annual Broadleaf</option>
+                <option value="winterAnnualBroadleaf">Winter Annual Broadleaf</option>
+                <option value="grasses">Grasses</option>
+                <option value="sedges">Sedges</option>
             </select>
         </div>
             <!-- Need javascript here to create more dropdown menus !-->
@@ -100,7 +113,7 @@
     </tr>
     <tr>
         <td>
-            <a id="helpLink">Help</a>
+            <a href="" id="helpLink">Help</a>
         </td>
     </tr>
     </table>

@@ -5,6 +5,7 @@ var reportForm = {
 	// reportForm constructor
     initialize: function() {
         this.renderView();
+        this.populateForm();
     },
 
     // Populate form data
@@ -14,22 +15,105 @@ var reportForm = {
             url: API + "api/crop",
             data: userJWT,
             success: function(data){
-                var cropSelection = $('#crop');
-                cropSelection.length = 0;
-                for(var i = 0; i < data.length; i++)
+                var cropSelection = document.getElementById('crop'); //$('#crop');
+                //cropSelection.length = 0;
+                //cropSelection.html = 0;
+                //for (var i = 0; i < cropSelection.options.length; i++)
+                //{
+                //    cropSelection.options[i] = null;
+                //}
+                for (var option in cropSelection)
                 {
-                    if (data[i].active){
-                        cropSelection.append($('<option>').text(data[i].name).val(data[i].name));
+                    cropSelection.remove(option);
+                }
+                //for(var i = 0; i < data.length; i++)
+                //{
+                //    if (data[i].active){
+                //        cropSelection.append($('<option>').text(data[i].name).val(data[i].name));
+                //    }
+                //}
+
+                for (var i = 0; i < data.length; i++)
+                {
+                    if(data[i].active){
+                        var opt = document.createElement('option');
+                        opt.innerHTML = data[i].name;
+                        opt.value = data[i].name;
+                        cropSelection.appendChild(opt);
                     }
                 }
             }
-        })
+        });
+
+        // Messing around with arthropod population - will need databse call
+        var arthropodDefault = ["Ants", "Aphids", "Bees and Wasps", "Beetles", "Caterpillars", "Flies",
+                            "Grasshoppers", "Grubs", "Maggots", "Mites", "Moths", "Pillbugs",
+                            "Stink Bugs", "True Bugs"];
+        var arthropodSelection = document.getElementById('arthropodDropdown');
+        for (var option in arthropodSelection)
+        {
+            arthropodSelection.remove(option);
+        }
+        for (var i = 0; i < arthropodDefault.length; i++)
+        {
+            var opt = document.createElement('option');
+            opt.innerHTML = arthropodDefault[i];
+            opt.value = arthropodDefault[i];
+            arthropodSelection.appendChild(opt);
+        }
+
+        // Set up for disease population - DO NOT DELETE
+        // $.ajax({
+        //     url: API + "api/disease",
+        //     data: userJWT,
+        //     success: function(data){
+        //         var diseaseSelection = document.getElementById('diseaseDropdown');
+        //         for (var option in diseaseSelection)
+        //         {
+        //             diseaseSelection.remove(option);
+        //         }
+
+        //         for (var i = 0; i < data.length; i++)
+        //         {
+        //             if(data[i].active){
+        //                 var opt = document.createElement('option');
+        //                 opt.innerHTML = data[i].name;
+        //                 opt.value = data[i].name;
+        //                 diseaseSelection.appendChild(opt);
+        //             }
+        //         }
+        //     }
+        // });
+
+        // Set up for weed population - DO NOT DELETE
+        // $.ajax({
+        //     url: API + "api/weed",
+        //     data: userJWT,
+        //     success: function(data){
+        //         var weedSelection = document.getElementById('weedDropdown');
+        //         for (var option in weedSelection)
+        //         {
+        //             weedSelection.remove(option);
+        //         }
+
+        //         for (var i = 0; i < data.length; i++)
+        //         {
+        //             if(data[i].active){
+        //                 var opt = document.createElement('option');
+        //                 opt.innerHTML = data[i].name;
+        //                 opt.value = data[i].name;
+        //                 weedSelection.appendChild(opt);
+        //             }
+        //         }
+        //     }
+        // });
     },
 
     // Register event handlers
     bindEvents: function() {
         $('#addDiseaseButton').on('click', this.addDisease);
         $('#addWeedButton').on('click', this.addWeed);
+        $('#addArthropodButton').on('click', this.addArthropod);
         $('#pictureButton').on('click', this.onPicture);
         $('#locationButton').on('click', this.onLocation);
         $('#helpLink').on('click', this.onHelp);
@@ -41,11 +125,25 @@ var reportForm = {
     // TODO: Populate disease options based on database info
     // TODO: Populate weed options based on database info
     
+    /**
+     * Adds an arthropod dropdown when the button "Add another athropod" is clicked
+     */
+    addArthropod: function(){
+        var newDiseaseDropdown = document.getElementById('arthropodDropdown').cloneNode(true);
+        document.getElementById('arthropodSelection').appendChild(newDiseaseDropdown);
+    },
+
+    /**
+     * Adds an disease dropdown when the button "Add another disease" is clicked
+     */
     addDisease: function(){
         var newDiseaseDropdown = document.getElementById('diseaseDropdown').cloneNode(true);
         document.getElementById('diseaseSelection').appendChild(newDiseaseDropdown);
     },
 
+    /**
+     * Adds an weed dropdown when the button "Add another weed" is clicked
+     */
     addWeed: function(){
         var newDiseaseDropdown = document.getElementById('weedDropdown').cloneNode(true);
         document.getElementById('weedSelection').appendChild(newDiseaseDropdown);
@@ -87,7 +185,10 @@ var reportForm = {
         );
     },
 
-    // Event handler for submit button
+    /**
+     * Event handler for when the "Submit" button is hit. Gets the information
+     * and sends stores it to a table on the database
+     */
     onSubmit: function(e){
     	e.PreventDefault();
 
