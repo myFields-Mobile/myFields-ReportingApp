@@ -10,28 +10,31 @@ var reportForm = {
 
     // Populate form data
     populateForm: function(cb) {
+    	var cropDefault = ["Alfalfa", "Wheat", "Corn" "Cotton"];
+    	var cropSelection = document.getElementById('cropDropdown');
+    	for (var option in cropSelection)
+    	{
+    		cropSelection.remove(option);
+    	}
+
+    	for (var i=0; i < arthropodDefault.length; i++)
+    	{
+    		var opt = document.createElement('option');
+    		opt.innerHTML = cropDefault[i];
+    		opt.value = cropDefault[i];
+    		cropSelection.appendChild(opt);
+    	}
+    	
         // Get crops
         $.ajax({
             url: API + "api/crop",
             data: userJWT,
             success: function(data){
-                var cropSelection = document.getElementById('crop'); //$('#crop');
-                //cropSelection.length = 0;
-                //cropSelection.html = 0;
-                //for (var i = 0; i < cropSelection.options.length; i++)
-                //{
-                //    cropSelection.options[i] = null;
-                //}
+                var cropSelection = document.getElementById('cropDropdown'); //$('#crop');
                 for (var option in cropSelection)
                 {
                     cropSelection.remove(option);
                 }
-                //for(var i = 0; i < data.length; i++)
-                //{
-                //    if (data[i].active){
-                //        cropSelection.append($('<option>').text(data[i].name).val(data[i].name));
-                //    }
-                //}
 
                 for (var i = 0; i < data.length; i++)
                 {
