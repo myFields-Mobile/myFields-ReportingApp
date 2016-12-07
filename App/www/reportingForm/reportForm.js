@@ -1,14 +1,27 @@
+/**
+ * Report Form
+ * @class
+ * @classdesc   Allows a user to select their afflicted crop, one or more pests, one or more diseases, one or more weeds, give comments,
+ * upload location, and upload picture(s). The report will be submitted as a JSON to our AppData table.
+ */
 var reportForm = {
-    // Field used to store location retrieved by Get Location button.
+
+    /** 
+     * Field used to store location retrieved by "Get Location" button 
+     */
     location: undefined,
 
-	// reportForm constructor
+	/**
+     * Renders the Report Form page
+     */
     initialize: function() {
         this.renderView();
         this.populateForm();
     },
 
-    // Populate form data
+    /**
+     * Populate the form data - gets options for fields from the database and populates the fields
+     */
     populateForm: function(cb) {
     	var cropDefault = ["Alfalfa", "Wheat", "Corn" "Cotton"];
     	var cropSelection = document.getElementById('cropDropdown');
@@ -48,7 +61,7 @@ var reportForm = {
             }
         });
 
-        // Messing around with arthropod population - will need databse call
+        // Messing around with arthropod population - will need database call
         var arthropodDefault = ["Ants", "Aphids", "Bees and Wasps", "Beetles", "Caterpillars", "Flies",
                             "Grasshoppers", "Grubs", "Maggots", "Mites", "Moths", "Pillbugs",
                             "Stink Bugs", "True Bugs"];
@@ -57,6 +70,7 @@ var reportForm = {
         {
             arthropodSelection.remove(option);
         }
+
         for (var i = 0; i < arthropodDefault.length; i++)
         {
             var opt = document.createElement('option');
@@ -112,7 +126,9 @@ var reportForm = {
         // });
     },
 
-    // Register event handlers
+    /**
+     * Registers the event handlers
+     */
     bindEvents: function() {
         $('#addDiseaseButton').on('click', this.addDisease);
         $('#addWeedButton').on('click', this.addWeed);
@@ -152,11 +168,16 @@ var reportForm = {
         document.getElementById('weedSelection').appendChild(newDiseaseDropdown);
     },
 
+    /**
+     * Allows the user to upload a picture when "Add picture" is clicked
+     */
     onPicture: function(){
 
     },
 
-    // Event handler for get location
+    /**
+     * Event handler for get location
+     */
     onLocation: function(){
 
         // TODO: Might want to add some map functionality - can use docs found here: https://cordova.apache.org/docs/en/latest/reference/cordova-plugin-geolocation/index.html#see-where-you-are-on-a-map
@@ -190,7 +211,7 @@ var reportForm = {
 
     /**
      * Event handler for when the "Submit" button is hit. Gets the information
-     * and sends stores it to a table on the database
+     * and stores it to a table ("AppData") on the database
      */
     onSubmit: function(e){
     	e.PreventDefault();
@@ -199,11 +220,11 @@ var reportForm = {
             alert("Please capture GPS location before submitting.");
         }
 
-    	// get selected crop
+    	// Get selected crop
     	var c = document.getElementById("crop");
     	var crop = c.options[c.selectedIndex].text;
 
-    	// get selected arthropod
+    	// Get selected arthropod
     	var a = document.getElementById("arthropod");
     	var arthropod = a.options[a.selectedIndex].text;
 
@@ -218,7 +239,9 @@ var reportForm = {
     	// TODO: Figure out how to format information and where to submit
     },
 
-
+    /**
+     * Loads the Report Form page
+     */
     renderView: function() {
         $('#view').load("../reportingForm/reportForm.html", function(){
             reportForm.populateForm();
