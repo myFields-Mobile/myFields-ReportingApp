@@ -220,7 +220,7 @@ var reportForm = {
 
     onHelp: function(){
         contactUs.initialize();
-    }
+    },
 
     renderView: function() {
         $('#view').load("../reportingForm/reportForm.html", function(){
