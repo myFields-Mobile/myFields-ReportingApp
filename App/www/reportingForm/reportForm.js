@@ -5,7 +5,6 @@ var reportForm = {
 	// reportForm constructor
     initialize: function() {
         this.renderView();
-        this.populateForm();
     },
 
     // Populate form data
@@ -17,7 +16,7 @@ var reportForm = {
     		cropSelection.remove(option);
     	}
 
-    	for (var i=0; i < arthropodDefault.length; i++)
+    	for (var i=0; i < cropDefault.length; i++)
     	{
     		var opt = document.createElement('option');
     		opt.innerHTML = cropDefault[i];
@@ -121,6 +120,7 @@ var reportForm = {
         $('#locationButton').on('click', this.onLocation);
         $('#helpLink').on('click', this.onHelp);
     	$('#submitButton').on('click', this.onSubmit);
+        $('#cancelButton').on('click', this.onCancel);
     },
 
     // TODO: Populate crop options based on database info
@@ -154,6 +154,11 @@ var reportForm = {
 
     onPicture: function(){
 
+    },
+
+    onCancel: function(){
+        // TODO: change false to user.isAdmin
+        menuPage.initialize(false);
     },
 
     // Event handler for get location
