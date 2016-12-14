@@ -10,7 +10,7 @@ var reportForm = {
 
     // Populate form data
     populateForm: function(cb) {
-    	var cropDefault = ["Alfalfa", "Wheat", "Corn" "Cotton"];
+    	var cropDefault = ["Alfalfa", "Wheat", "Corn", "Cotton"];
     	var cropSelection = document.getElementById('cropDropdown');
     	for (var option in cropSelection)
     	{
@@ -218,7 +218,7 @@ var reportForm = {
     	// TODO: Figure out how to format information and where to submit
     },
 
-    onHelp:function(){
+    onHelp: function(){
         contactUs.initialize();
     }
 
