@@ -218,6 +218,9 @@ var reportForm = {
     	// TODO: Figure out how to format information and where to submit
     },
 
+    onHelp:function(){
+        contactUs.initialize();
+    }
 
     renderView: function() {
         $('#view').load("../reportingForm/reportForm.html", function(){
