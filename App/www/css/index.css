@@ -67,7 +67,7 @@ button:active {
 }
 
 .HeaderImage {
-    content: url('../img/myFieldsLogo.png');
+    content: url('../img/myFieldsLogo_large.png');
     margin: auto;
     text-align:center;
     vertical-align:middle;
