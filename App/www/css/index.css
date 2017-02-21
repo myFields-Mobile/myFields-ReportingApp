@@ -1,3 +1,5 @@
+@import url('./bootstrap-3.3.7-dist/css/boostrap.min.css') bootstrap;
+
 * {
     -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
 }
