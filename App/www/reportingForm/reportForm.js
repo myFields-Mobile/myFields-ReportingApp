@@ -16,21 +16,20 @@ var reportForm = {
      */
     initialize: function() {
         this.renderView();
-        this.populateForm();
     },
 
     /**
      * Populate the form data - gets options for fields from the database and populates the fields
      */
     populateForm: function(cb) {
-    	var cropDefault = ["Alfalfa", "Wheat", "Corn" "Cotton"];
+    	var cropDefault = ["Alfalfa", "Wheat", "Corn", "Cotton"];
     	var cropSelection = document.getElementById('cropDropdown');
     	for (var option in cropSelection)
     	{
     		cropSelection.remove(option);
     	}
 
-    	for (var i=0; i < arthropodDefault.length; i++)
+    	for (var i=0; i < cropDefault.length; i++)
     	{
     		var opt = document.createElement('option');
     		opt.innerHTML = cropDefault[i];
@@ -137,6 +136,7 @@ var reportForm = {
         $('#locationButton').on('click', this.onLocation);
         $('#helpLink').on('click', this.onHelp);
     	$('#submitButton').on('click', this.onSubmit);
+        $('#cancelButton').on('click', this.onCancel);
     },
 
     // TODO: Populate crop options based on database info
@@ -175,9 +175,18 @@ var reportForm = {
 
     },
 
+
     /**
      * Event handler for get location
      */
+
+    onCancel: function(){
+        // TODO: change false to user.isAdmin
+        menuPage.initialize(false);
+    },
+
+    // Event handler for get location
+
     onLocation: function(){
 
         // TODO: Might want to add some map functionality - can use docs found here: https://cordova.apache.org/docs/en/latest/reference/cordova-plugin-geolocation/index.html#see-where-you-are-on-a-map
@@ -242,6 +251,11 @@ var reportForm = {
     /**
      * Loads the Report Form page
      */
+    onHelp: function(){
+        contactUs.initialize();
+    },
+
+
     renderView: function() {
         $('#view').load("../reportingForm/reportForm.html", function(){
             reportForm.populateForm();
