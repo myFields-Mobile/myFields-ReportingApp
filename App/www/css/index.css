@@ -1,3 +1,5 @@
+@import url('../bootstrap-3.3.7-dist/css/bootstrap.css');
+
 * {
     -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
 }
@@ -5,7 +7,15 @@
 body {
     -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
     -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
-    background-color:#dbcf97;
+    background-color: #000;
+    background-image: url(../img/wheat_bg.jpg);
+    background-repeat: no-repeat;               /* This next section with background makes bg image adaptable to */
+    background-position: center;                /* changing screen size */
+    background-attachment: fixed;
+    webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
     font: 100%/1.4 Verdana, Arial, Helvetica, sans-serif; /** "Arial Black", Gadget, sans-serif **/
     font-size:350%;
     height:100%;
@@ -13,6 +23,13 @@ body {
     padding:0px;
     width:100%;
     text-align:center; vertical-align:middle;
+}
+
+div.transparent_box {
+    margin: 35px;
+    background-color: #ffe6cc;
+    border: 1px solid black;
+    opacity: 0.6;
 }
 
 h1 {
@@ -26,7 +43,8 @@ h1 {
 
 button.normal {
     display: block;
-    width: 100%;
+    margin: auto;
+    width: 80%;
     background: #e6e5df;
     background-image: -webkit-linear-gradient(top, #e6e5df, #6a6b60);
     background-image: -moz-linear-gradient(top, #e6e5df, #6a6b60);
@@ -38,6 +56,7 @@ button.normal {
     color: #000000;
     font-size: 70px;
     padding: 15px 25px 15px 25px;
+    margin-bottom: 15px;
     text-decoration: none;
 }
 
@@ -71,8 +90,9 @@ button:active {
     margin: auto;
     text-align:center;
     vertical-align:middle;
-    height: 40%;
-    width: 40%;
+    height: 60%;
+    width: 60%;
+    padding-top: 20px;
 }
 
 /** To add space between elements horizontally **/
@@ -100,8 +120,11 @@ button:active {
 
 input{
     font: 100%/1.4 Verdana, Arial, Helvetica, sans-serif;
-    font-size: 90%;
+    font-size: 80%;
     padding-bottom: 10px;
+    margin-top: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 input[type=checkbox]{
@@ -113,8 +136,13 @@ input[type=checkbox]{
 }
 
 table.normal {
-    margin-left: auto;
-    margin-right: auto;
+    /*margin-left: auto;*/
+    /*margin-right: auto;*/
+    margin: auto;
+    position: center;
+    background: rgba(255, 230, 204, 0.75);
+    border: 1px solid black;
+    width: 80%;
 }
 
 table.switchCase{
@@ -165,9 +193,9 @@ textarea {
     padding: 8px 10px 10px 10px;
     outline: 0;
     display: block;
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
+    width: 90%;
+    margin-left: 15px;
+    margin-right: 15px;
     font: 100%/1.4 Verdana, Arial, Helvetica, sans-serif;
     font-size: 90%;
     resize: none;
@@ -178,16 +206,22 @@ a:link, a:visited{
 	text-decoration: none;
 }
 
-.form-control {
-    display: inline-block;
-    width: 115%;
-    height: 115%;
-    padding: 6px 12px;
+select.form-control-edit{
+    height: 100%;
+    width: 95%;
     font-size: 100%;
-    line-height: 100%;
-    color: #555;
-    background-color: #fff;
-    background-image: none;
-    border: 1px solid #ccc;
-    border-radius: 4px;
 }
+
+/*.form-control {*/
+    /*display: inline-block;*/
+    /*width: 115%;*/
+    /*height: 115%;*/
+    /*padding: 6px 12px;*/
+    /*font-size: 100%;*/
+    /*line-height: 100%;*/
+    /*color: #555;*/
+    /*background-color: #fff;*/
+    /*background-image: none;*/
+    /*border: 1px solid #ccc;*/
+    /*border-radius: 4px;*/
+/*}*/
