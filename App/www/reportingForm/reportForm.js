@@ -175,27 +175,17 @@ var reportForm = {
 
     },
 
-<<<<<<< HEAD
-    /**
-     * Event handler for get location
-     */
-=======
 
     /**
      * Event handler for get location
      */
 
->>>>>>> master
     onCancel: function(){
         // TODO: change false to user.isAdmin
         menuPage.initialize(false);
     },
 
     // Event handler for get location
-<<<<<<< HEAD
-=======
-
->>>>>>> master
     onLocation: function(){
 
         // TODO: Might want to add some map functionality - can use docs found here: https://cordova.apache.org/docs/en/latest/reference/cordova-plugin-geolocation/index.html#see-where-you-are-on-a-map
@@ -264,10 +254,6 @@ var reportForm = {
         contactUs.initialize();
     },
 
-<<<<<<< HEAD
-=======
-
->>>>>>> master
     renderView: function() {
         $('#view').load("../reportingForm/reportForm.html", function(){
             reportForm.populateForm();
