@@ -52,6 +52,7 @@ var loginPage = {
                         loggedInUser = data;
                     }
                 })
+                // TODO: change this to user.isAdmin
                 menuPage.initialize(false);
             },
             error: function(error) {
