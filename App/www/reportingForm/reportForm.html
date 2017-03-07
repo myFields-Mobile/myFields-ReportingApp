@@ -16,12 +16,12 @@
             Crop:
         </td>
         <td>
-        <select class="form-control" name="crop" id="cropDropdown">
-            <option value="alfalfa">Alfalfa</option>
-            <option value="wheat">Wheat</option>
-            <option value="corn">Corn</option>
-            <option value="cotton">Cotton</option>
-        </select>
+            <select class="form-control form-control-edit" name="crop" id="cropDropdown">
+                <option value="alfalfa">Alfalfa</option>
+                <option value="wheat">Wheat</option>
+                <option value="corn">Corn</option>
+                <option value="cotton">Cotton</option>
+            </select>
         </td>
     </tr>
     <tr>
@@ -30,14 +30,14 @@
         </td>
         <td>
         <div id="arthropodSelection">
-            <select class="form-control" name="arthropod" id="arthropodDropdown">
+            <select class="form-control form-control-edit" name="arthropod" id="arthropodDropdown">
                 <option value="aphids">Aphids</option>
                 <option value="grubs">Grubs</option>
                 <option value="maggots">Maggots</option>
             </select>
         </div>
-            <div class="center">
-            <button class="addDropdown" id="addArthropodButton">Add another arthropod</button>
+            <div class="center"">
+            <button class="addDropdown" id="addArthropodButton" style="width: 80%">Add another arthropod</button>
             </div>
         </td>
     </tr>
@@ -47,7 +47,7 @@
         </td>
         <td>
         <div id="diseaseSelection">
-        	<select class="form-control" name="disease" id="diseaseDropdown">
+        	<select class="form-control form-control-edit" name="disease" id="diseaseDropdown">
                 <option value="anthracnoseLeafBlight">Anthracnose Leaf Blight</option>
                 <option value="anthracnoseStalkRot">Anthracnose Stalk Rot</option>
                 <option value="aspergillusEarRot">AspergillusEarRot</option>
@@ -57,7 +57,7 @@
         </div>
             <!-- Need javascript here to create more dropdown menus !-->
             <div class="center">
-            <button class="addDropdown" id="addDiseaseButton">Add another disease</button>
+            <button class="addDropdown" id="addDiseaseButton" style="width: 80%">Add another disease</button>
             </div>
         </td>
     </tr>
@@ -66,7 +66,7 @@
         </td>
         <td>
         <div id="weedSelection">
-        	<select class="form-control" name="weed" id="weedDropdown">
+        	<select class="form-control form-control-edit" name="weed" id="weedDropdown">
                 <option value="broadleaf">Broadleaf</option>
                 <option value="grass">Grass</option>
                 <option value="annualBroadleafWeeds">Annual Broadleaf Weeds</option>
@@ -79,40 +79,35 @@
             </select>
         </div>
             <!-- Need javascript here to create more dropdown menus !-->
-            <button class="addDropdown" id="addWeedButton">Add another weed</button>
+            <button class="addDropdown" id="addWeedButton" style="width: 80%">Add another weed</button>
         </td>
-    </table>
-
-    <!-- One column table that contains comment section and buttons to select location, upload picture,
-    	 and submit !-->
-    <table class="space normal">
     <tr>
-        <td class="leftAlign">
+        <td class="leftAlign" colspan="2" style="padding-left: 15px">
             Comments:
         </td>
     </tr>
     <tr>
-        <td>
+        <td colspan="2">
             <textarea rows="6" name="comment" id="comment" placeholder="Enter comments..."></textarea>
         </td>
     </tr>
     <tr>
-        <td>
+        <td colspan="2">
             <button class="normal" id="locationButton">Select Location</button>
         </td>
     </tr>
     <tr>
-        <td>
+        <td colspan="2">
             <button class="normal" id="pictureButton">Upload Picture</button>
         </td>
     </tr>
     <tr>
-        <td>
+        <td colspan="2">
             <button class="normal" id="submitButton">Submit</button>
         </td>
     </tr>
     <tr>
-        <td>
+        <td colspan="2">
             <a href="" id="helpLink">Help</a>
         </td>
     </tr>
