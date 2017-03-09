@@ -175,11 +175,14 @@ var reportForm = {
 
     },
 
+<<<<<<< HEAD
 
     /**
      * Event handler for get location
      */
 
+=======
+>>>>>>> origin/master
     onCancel: function(){
         // TODO: change false to user.isAdmin
         menuPage.initialize(false);
@@ -251,9 +254,12 @@ var reportForm = {
     	// TODO: Figure out how to format information and where to submit
     },
 
+<<<<<<< HEAD
     /**
      * Loads the Report Form page
      */
+=======
+>>>>>>> origin/master
     onHelp: function(){
         contactUs.initialize();
     },
