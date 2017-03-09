@@ -232,15 +232,34 @@ var reportForm = {
     	var crop = c.options[c.selectedIndex].text;
 
     	// Get selected arthropod
-    	// var a = document.getElementById("arthropodSelection");
+    	// var a = document.getElementById("arthropodDropdown");
     	// var arthropod = a.options[a.selectedIndex].text;
-        selectArray = $('[id^=arthropodSelection]');
-        var arthropods = selectArray.map(function(){
-            return this.text;
-        });
+        // selectArray = $('[id^=arthropodDropdown]');
+        // var arthropods = selectArray.map(function(){
+         //    return this.text;
+        // });
+
+        var a = document.getElementsByName("arthropod");
+        var arthropods = new Array();
+        for (var i = 0; i < a.length; i++){
+            arthropods.push(a[i].text)
+        }
+        arthropods = arthropods.toString();
 
     	// TODO: get multiple diseases (potentially make a loop and add diseases to a string/array?)
+        var dis = document.getElementsByName("disease");
+        var diseases = new Array();
+        for (var i = 0; i < dis.length; i++){
+            diseases.push(dis[i].text);
+        }
+        diseases = diseases.toString();
     	// TODO: get mutliple weeds (potentially make a loop and add weeds to a string/array?)
+        var w = document.getElementsByName("weed");
+        var weeds = new Array();
+        for (var i = 0; i < w.length; i++){
+            weeds.push(w[i].text);
+        }
+        weeds = weeds.toString();
 
     	var comment = document.getElementById("comment");
 
