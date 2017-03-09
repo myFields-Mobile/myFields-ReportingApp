@@ -229,12 +229,16 @@ var reportForm = {
         }
 
     	// Get selected crop
-    	var c = document.getElementById("crop");
+    	var c = document.getElementById("cropDropdown");
     	var crop = c.options[c.selectedIndex].text;
 
     	// Get selected arthropod
-    	var a = document.getElementById("arthropod");
-    	var arthropod = a.options[a.selectedIndex].text;
+    	// var a = document.getElementById("arthropodSelection");
+    	// var arthropod = a.options[a.selectedIndex].text;
+        selectArray = $('[id^=arthropodSelection]');
+        var arthropods = selectArray.map(function(){
+            return this.text;
+        });
 
     	// TODO: get multiple diseases (potentially make a loop and add diseases to a string/array?)
     	// TODO: get mutliple weeds (potentially make a loop and add weeds to a string/array?)
