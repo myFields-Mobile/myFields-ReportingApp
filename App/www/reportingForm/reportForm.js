@@ -175,18 +175,20 @@ var reportForm = {
 
     },
 
+<<<<<<< HEAD
 
     /**
      * Event handler for get location
      */
 
+=======
+>>>>>>> origin/master
     onCancel: function(){
         // TODO: change false to user.isAdmin
         menuPage.initialize(false);
     },
 
     // Event handler for get location
-
     onLocation: function(){
 
         // TODO: Might want to add some map functionality - can use docs found here: https://cordova.apache.org/docs/en/latest/reference/cordova-plugin-geolocation/index.html#see-where-you-are-on-a-map
@@ -230,12 +232,16 @@ var reportForm = {
         }
 
     	// Get selected crop
-    	var c = document.getElementById("crop");
+    	var c = document.getElementById("cropDropdown");
     	var crop = c.options[c.selectedIndex].text;
 
     	// Get selected arthropod
-    	var a = document.getElementById("arthropod");
-    	var arthropod = a.options[a.selectedIndex].text;
+    	// var a = document.getElementById("arthropodSelection");
+    	// var arthropod = a.options[a.selectedIndex].text;
+        selectArray = $('[id^=arthropodSelection]');
+        var arthropods = selectArray.map(function(){
+            return this.text;
+        });
 
     	// TODO: get multiple diseases (potentially make a loop and add diseases to a string/array?)
     	// TODO: get mutliple weeds (potentially make a loop and add weeds to a string/array?)
@@ -248,13 +254,15 @@ var reportForm = {
     	// TODO: Figure out how to format information and where to submit
     },
 
+<<<<<<< HEAD
     /**
      * Loads the Report Form page
      */
+=======
+>>>>>>> origin/master
     onHelp: function(){
         contactUs.initialize();
     },
-
 
     renderView: function() {
         $('#view').load("../reportingForm/reportForm.html", function(){
