@@ -265,7 +265,7 @@ var reportForm = {
     	// TODO: images
     	// TODO: Figure out how to format information and where to submit
 
-        var json_form = '{ "field_info" : [' +
+        var form_text = '{ "field_info" : [' +
                 '{ "crop":"' + crop + '", ' +
                 '"arthropods":"' + arthropods + '", ' +
                 '"diseases":"' + diseases + '", ' +
@@ -274,7 +274,7 @@ var reportForm = {
                 '"location":"' + location.toString() + '", ' +
                 '"images":"' + 'images' + '"} ]} '; // TODO: Figure out images
 
-        var json_obj = JSON.parse(json_form);
+        var form_json = JSON.parse(form_text);
         // TODO: Submit form to server
     },
 
