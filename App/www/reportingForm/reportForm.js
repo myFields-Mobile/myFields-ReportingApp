@@ -194,7 +194,7 @@ var reportForm = {
                 reportForm.location = {
                     Latitude: position.coords.latitude,
                     Longitude: position.coords.longitude
-                }
+                };
                 console.log("Successfully got location: " + reportForm.location.Latitude + " , " + reportForm.location.Longitude);
             }, 
             // On failed geolocation.getCurrentPosition, reportForm.location = undefined
@@ -227,38 +227,29 @@ var reportForm = {
             alert("Please capture GPS location before submitting.");
         }
 
-    	// Get selected crop
     	var c = document.getElementById("cropDropdown");
     	var crop = c.options[c.selectedIndex].text;
 
-    	// Get selected arthropod
-    	// var a = document.getElementById("arthropodDropdown");
-    	// var arthropod = a.options[a.selectedIndex].text;
-        // selectArray = $('[id^=arthropodDropdown]');
-        // var arthropods = selectArray.map(function(){
-         //    return this.text;
-        // });
-
-        var a = document.getElementsByName("arthropod");t
+        var a = document.getElementsByName("arthropod");
         var arthropods = new Array();
         for (var i = 0; i < a.length; i++){
             arthropods.push(a[i].value)
         }
-        arthropods = arthropods.toString();
+        arthropods = arthropods.join(", ");
 
         var dis = document.getElementsByName("disease");
         var diseases = new Array();
         for (var i = 0; i < dis.length; i++){
             diseases.push(dis[i].value);
         }
-        diseases = diseases.toString();
+        diseases = diseases.join(", ");
 
         var w = document.getElementsByName("weed");
         var weeds = new Array();
         for (var i = 0; i < w.length; i++){
             weeds.push(w[i].value);
         }
-        weeds = weeds.toString();
+        weeds = weeds.join(", ");
 
     	var comment = document.getElementById("comment");
 
@@ -275,6 +266,7 @@ var reportForm = {
                 '"images":"' + 'images' + '"} ]} '; // TODO: Figure out images
 
         var form_json = JSON.parse(form_text);
+
         // TODO: Submit form to server
     },
 
