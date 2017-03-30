@@ -239,25 +239,24 @@ var reportForm = {
          //    return this.text;
         // });
 
-        var a = document.getElementsByName("arthropod");
+        var a = document.getElementsByName("arthropod");t
         var arthropods = new Array();
         for (var i = 0; i < a.length; i++){
-            arthropods.push(a[i].text)
+            arthropods.push(a[i].value)
         }
         arthropods = arthropods.toString();
 
-    	// TODO: get multiple diseases (potentially make a loop and add diseases to a string/array?)
         var dis = document.getElementsByName("disease");
         var diseases = new Array();
         for (var i = 0; i < dis.length; i++){
-            diseases.push(dis[i].text);
+            diseases.push(dis[i].value);
         }
         diseases = diseases.toString();
-    	// TODO: get mutliple weeds (potentially make a loop and add weeds to a string/array?)
+
         var w = document.getElementsByName("weed");
         var weeds = new Array();
         for (var i = 0; i < w.length; i++){
-            weeds.push(w[i].text);
+            weeds.push(w[i].value);
         }
         weeds = weeds.toString();
 
