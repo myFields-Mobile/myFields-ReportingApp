@@ -251,7 +251,7 @@ var reportForm = {
         }
         weeds = weeds.join(", ");
 
-    	var comment = document.getElementById("comment");
+    	var comment = document.getElementById("comment").value;
 
     	// TODO: images
     	// TODO: Figure out how to format information and where to submit
@@ -263,7 +263,7 @@ var reportForm = {
                 '"weeds":"' + weeds + '", ' +
                 '"comment":"' + comment + '", ' +
                 '"location":"' + location.toString() + '", ' +
-                '"images":"' + 'images' + '"} ]} '; // TODO: Figure out images
+                '"images":"' + 'images' + '"} ]} '; // TODO: Figure out images - using placeholder string right now
 
         var form_json = JSON.parse(form_text);
 
