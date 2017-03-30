@@ -262,10 +262,20 @@ var reportForm = {
 
     	var comment = document.getElementById("comment");
 
-    	// TODO: location
     	// TODO: images
-
     	// TODO: Figure out how to format information and where to submit
+
+        var json_form = '{ "field_info" : [' +
+                '{ "crop":"' + crop + '", ' +
+                '"arthropods":"' + arthropods + '", ' +
+                '"diseases":"' + diseases + '", ' +
+                '"weeds":"' + weeds + '", ' +
+                '"comment":"' + comment + '", ' +
+                '"location":"' + location.toString() + '", ' +
+                '"images":"' + 'images' + '"} ]} '; // TODO: Figure out images
+
+        var json_obj = JSON.parse(json_form);
+        // TODO: Submit form to server
     },
 
     /**
