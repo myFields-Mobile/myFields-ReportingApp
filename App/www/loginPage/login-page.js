@@ -1,5 +1,6 @@
 /** Global variable for authenticated user's JWT token */
-var userJWT;
+var oauthToken;
+var oauthTokenSecret;
 
 /** Global variable to store currently logged in user */
 var loggedInUser;
@@ -38,8 +39,9 @@ var loginPage = {
                 email: $('#emailBox').val(),
                 password: $('#pwBox').val()
             },
-            success: function(data) {
-                userJWT = data.token;
+            success: function(data, status, xhr) {
+                console.log(xhr.getAllResponseHeaders());
+                //userJWT = data.token;
 
                 // On successful authentication, get the authenticated user
                 $.ajax({
@@ -60,7 +62,8 @@ var loginPage = {
                 console.log("Failed login attempt. User: " + $('#emailBox').val() + " at " + Date());
                 alert("Unrecognized username or password. Please try again.");
             },
-            method: "POST",
+            rejectUnauthorized: false,
+            method: "GET",
             dataType: "json"
         })
 
