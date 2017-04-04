@@ -70,6 +70,11 @@ var reportForm = {
             arthropodSelection.remove(option);
         }
 
+        var noneOption = document.createElement('option');
+        noneOption.innerHTML = 'None';
+        noneOption.value = 'None';
+        arthropodSelection.appendChild(noneOption);
+
         for (var i = 0; i < arthropodDefault.length; i++)
         {
             var opt = document.createElement('option');
@@ -88,7 +93,9 @@ var reportForm = {
         //         {
         //             diseaseSelection.remove(option);
         //         }
-
+        //
+        //         diseaseSelection.appendChild(noneOption);
+        //
         //         for (var i = 0; i < data.length; i++)
         //         {
         //             if(data[i].active){
@@ -111,7 +118,9 @@ var reportForm = {
         //         {
         //             weedSelection.remove(option);
         //         }
-
+        //
+        //         weedSelection.appendChild(noneOption)
+        //
         //         for (var i = 0; i < data.length; i++)
         //         {
         //             if(data[i].active){
@@ -175,16 +184,14 @@ var reportForm = {
 
     },
 
-    /**
-     * Event handler for get location
-     */
-
     onCancel: function(){
         // TODO: change false to user.isAdmin
         menuPage.initialize(false);
     },
 
-    // Event handler for get location
+    /**
+     * Event handler for get location
+     */
     onLocation: function(){
 
         // TODO: Might want to add some map functionality - can use docs found here: https://cordova.apache.org/docs/en/latest/reference/cordova-plugin-geolocation/index.html#see-where-you-are-on-a-map
@@ -227,27 +234,40 @@ var reportForm = {
             alert("Please capture GPS location before submitting.");
         }
 
+        // Get single crop
     	var c = document.getElementById("cropDropdown");
     	var crop = c.options[c.selectedIndex].text;
 
-        var a = document.getElementsByName("arthropod");
+        // Get arthropod(s), if any
+        var a = document.getElementsByName("arthropodDropdown");
         var arthropods = new Array();
         for (var i = 0; i < a.length; i++){
-            arthropods.push(a[i].value)
+            if (a[i].value != 'None')
+            {
+                arthropods.push(a[i].value)
+            }
         }
         arthropods = arthropods.join(", ");
 
-        var dis = document.getElementsByName("disease");
+        // Get disease(s), if any
+        var dis = document.getElementsByName("diseaseDropdown");
         var diseases = new Array();
         for (var i = 0; i < dis.length; i++){
-            diseases.push(dis[i].value);
+            if (dis[i].value != 'None')
+            {
+                diseases.push(dis[i].value);
+            }
         }
         diseases = diseases.join(", ");
 
-        var w = document.getElementsByName("weed");
+        // Get weed(s), if any
+        var w = document.getElementsByName("weedDropdown");
         var weeds = new Array();
         for (var i = 0; i < w.length; i++){
-            weeds.push(w[i].value);
+            if (w[i].value != 'None')
+            {
+                weeds.push(w[i].value);
+            }
         }
         weeds = weeds.join(", ");
 
@@ -271,7 +291,7 @@ var reportForm = {
     },
 
     /**
-     * Loads the Report Form page
+     * Load the Report Form page
      */
 
     onHelp: function(){
