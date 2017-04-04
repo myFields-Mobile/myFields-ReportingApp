@@ -1,22 +1,37 @@
-// Global variable for authenticated user's JWT token
+/** Global variable for authenticated user's JWT token */
 var userJWT;
-// Global variable to store currently logged in user
+
+/** Global variable to store currently logged in user */
 var loggedInUser;
 
+
+/**
+ * Login
+ * @class
+ * @classdesc Allows a user to enter username and password, which is authenticated using the database, or create an account.
+ */
 var loginPage = {
-    // LoginPage constructor
+
+    /**
+     * Renders the login page
+     */
     initialize: function() {
         this.renderView();
     },
-    // Register submit button event handler
+
+    /** Event handler for "Submit" button */
     bindEvents: function() {
         $('#loginButton').on('click', this.onLogin);
         $('#createAccount').on('click', this.onCreateAccount);
     },
-    // On Submit button push
+
+    /** 
+     * On "Submit" button push, calls the authentication API. 
+     * If successful, gets the authenticated user and goes to home page.
+     */
     onLogin: function(e) {
         e.preventDefault();
-        // Call to authentication API goes here
+        
         $.ajax({
             url: API + "api/authenticate",
             data: {
@@ -25,6 +40,7 @@ var loginPage = {
             },
             success: function(data) {
                 userJWT = data.token;
+
                 // On successful authentication, get the authenticated user
                 $.ajax({
                     url: API + "api/user/me",
@@ -36,6 +52,7 @@ var loginPage = {
                         loggedInUser = data;
                     }
                 })
+                // TODO: change this to user.isAdmin
                 menuPage.initialize(false);
             },
             error: function(error) {
@@ -46,13 +63,20 @@ var loginPage = {
             method: "POST",
             dataType: "json"
         })
+
         // TODO: remove testing stuff
     },
 
+    /**
+     * Initializes the create account page
+     */
     onCreateAccount: function(e){
         createAccountPage.initialize();
     },
 
+    /**
+     * Loads the login page
+     */
     renderView: function() {
         $('#view').load("../loginPage/login-page.html", function(){
             loginPage.bindEvents();

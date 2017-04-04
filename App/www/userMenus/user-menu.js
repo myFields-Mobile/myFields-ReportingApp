@@ -1,10 +1,22 @@
+/**
+ * Menu Page
+ * @class 
+ * @classdesc   Will have various buttons for making a report, contacting App owners/help, resources, logging out,
+ * and (for specialists) reviewing a report.
+ */
 var menuPage = {
-    // menuPage constructor
+
+    /**
+     * Renders the Menu Page page
+     */
     initialize: function(isAdmin) {
         this.isAdmin = isAdmin;
         this.renderView();
     },
-    // registers event handlers
+
+    /**
+     * Registers the event handlers
+     */
     bindEvents: function() {
         $('#reportButton').on('click', this.onReport);
         $('#logoutButton').on('click', this.onLogout);
@@ -13,12 +25,18 @@ var menuPage = {
         }
         $('#helpLink').on('click', this.onHelp);
     },
-    // event handler for report button
+
+    /**
+     * Event handler for report button - goes to the Report Form page
+     */
     onReport: function(e) {
         e.preventDefault();
         reportForm.initialize();
     },
-    // event handler for logout button
+
+    /**
+     * Event handler for logout button - logs the user out and goes back to login page
+     */
     onLogout: function(e) {
         e.preventDefault();
         loggedInUser = undefined;
@@ -26,16 +44,24 @@ var menuPage = {
         console.log("User logged out.");
         loginPage.initialize();
     },
-    // event handler for review report button
+
+    /**
+     * Event handler for review report button - allows agent/specialist/researcher to review reports
+     */
     onReviewReport: function(e) {
         e.preventDefault();
     },
-    // event handler for help link
+
+    /**
+     * Event handler for help link - goes to "Contact Us" page
+     */
     onHelp(){
         contactUs.initialize();
     },
 
-    // renders the page and calls bindEvents
+    /**
+     * Renders the page and calls bindEvents
+     */
     renderView: function() {
         if (this.isAdmin){
             $('#view').load("../userMenus/specialistUserMenu.html", function() {

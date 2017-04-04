@@ -16,37 +16,46 @@
             Crop:
         </td>
         <td>
-        <select class="form-control" name="crop" id="crop">
-            <option value="crop1">crop1</option>
-            <option value="crop2">crop2</option>
-            <option value="crop3">crop3</option>
+        <select class="form-control" name="crop" id="cropDropdown">
+            <option value="alfalfa">Alfalfa</option>
+            <option value="wheat">Wheat</option>
+            <option value="corn">Corn</option>
+            <option value="cotton">Cotton</option>
         </select>
         </td>
     </tr>
     <tr>
-        <td class="rightAlign">
+        <td class="top rightAlign">
             Arthropod:
         </td>
         <td>
-            <select class="form-control" name="arthropod" id="arthropod">
-                <option value="arthropod1">arthropod1</option>
-                <option value="arthropod2">arthropod2</option>
-                <option value="arthropod3">arthropod3</option>
+        <div id="arthropodSelection">
+            <select class="form-control" name="arthropod" id="arthropodDropdown">
+                <option value="aphids">Aphids</option>
+                <option value="grubs">Grubs</option>
+                <option value="maggots">Maggots</option>
             </select>
+        </div>
+            <div class="center">
+            <button class="addDropdown" id="addArthropodButton">Add another arthropod</button>
+            </div>
         </td>
     </tr>
     <tr>
         <td class="top rightAlign">
             Disease(s):
         </td>
-        <td id="diseaseArea">
+        <td>
+        <div id="diseaseSelection">
         	<select class="form-control" name="disease" id="diseaseDropdown">
-                <option value="disease1">disease1</option>
-                <option value="disease2">disease2</option>
-                <option value="disease3">disease3</option>
+                <option value="anthracnoseLeafBlight">Anthracnose Leaf Blight</option>
+                <option value="anthracnoseStalkRot">Anthracnose Stalk Rot</option>
+                <option value="aspergillusEarRot">AspergillusEarRot</option>
+                <option value="bacterialBlight">Bacterial Blight</option>
+                <option value="charcoalRot">Charcoal Rot</option>
             </select>
+        </div>
             <!-- Need javascript here to create more dropdown menus !-->
-            <div id='newDropDownArea'></div>
             <div class="center">
             <button class="addDropdown" id="addDiseaseButton">Add another disease</button>
             </div>
@@ -56,11 +65,19 @@
             Weed(s):
         </td>
         <td>
-        	<select class="form-control" name="weed">
-                <option value="weed1">weed1</option>
-                <option value="weed2">weed2</option>
-                <option value="weed3">weed3</option>
+        <div id="weedSelection">
+        	<select class="form-control" name="weed" id="weedDropdown">
+                <option value="broadleaf">Broadleaf</option>
+                <option value="grass">Grass</option>
+                <option value="annualBroadleafWeeds">Annual Broadleaf Weeds</option>
+                <option value="annualGrasses">Annual Grasses</option>
+                <option value="perennials">Perennials</option>
+                <option value="summerAnnualBroadleaf">Summer Annual Broadleaf</option>
+                <option value="winterAnnualBroadleaf">Winter Annual Broadleaf</option>
+                <option value="grasses">Grasses</option>
+                <option value="sedges">Sedges</option>
             </select>
+        </div>
             <!-- Need javascript here to create more dropdown menus !-->
             <button class="addDropdown" id="addWeedButton">Add another weed</button>
         </td>
@@ -81,12 +98,12 @@
     </tr>
     <tr>
         <td>
-            <button class="normal">Select Location</button>
+            <button class="normal" id="locationButton">Select Location</button>
         </td>
     </tr>
     <tr>
         <td>
-            <button class="normal">Upload Picture</button>
+            <button class="normal" id="pictureButton">Upload Picture</button>
         </td>
     </tr>
     <tr>
@@ -96,7 +113,7 @@
     </tr>
     <tr>
         <td>
-            <a href="">Help</a>
+            <a href="" id="helpLink">Help</a>
         </td>
     </tr>
     </table>
