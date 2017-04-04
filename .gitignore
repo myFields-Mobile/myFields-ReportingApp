@@ -250,3 +250,5 @@ ModelManifest.xml
 
 # Browser platform assets
 App/platforms/browser/www/*
+
+App/.idea/workspace.xml

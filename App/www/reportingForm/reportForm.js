@@ -276,16 +276,17 @@ var reportForm = {
     	// TODO: images
     	// TODO: Figure out how to format information and where to submit
 
-        var form_text = '{ "field_info" : [' +
+        // Create the string for the json then change it into a json object
+        var json = '{ "field_info" : [' +
                 '{ "crop":"' + crop + '", ' +
                 '"arthropods":"' + arthropods + '", ' +
                 '"diseases":"' + diseases + '", ' +
                 '"weeds":"' + weeds + '", ' +
                 '"comment":"' + comment + '", ' +
                 '"location":"' + location.toString() + '", ' +
-                '"images":"' + 'images' + '"} ]} '; // TODO: Figure out images - using placeholder string right now
+                '"images":"' + 'images' + '"} ]} '; // TODO: This needs to be a url to images in Azure
 
-        var form_json = JSON.parse(form_text);
+        json = JSON.parse(json);
 
         // TODO: Submit form to server
     },
