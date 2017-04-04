@@ -29,7 +29,7 @@ var reportForm = {
     		cropSelection.remove(option);
     	}
 
-    	for (var i=0; i < cropDefault.length; i++)
+    	for (var i = 0; i < cropDefault.length; i++)
     	{
     		var opt = document.createElement('option');
     		opt.innerHTML = cropDefault[i];
@@ -70,11 +70,13 @@ var reportForm = {
             arthropodSelection.remove(option);
         }
 
+        // Need a None option for all dropdowns except crop
         var noneOption = document.createElement('option');
         noneOption.innerHTML = 'None';
         noneOption.value = 'None';
         arthropodSelection.appendChild(noneOption);
 
+        // Append options for real arthropod selection
         for (var i = 0; i < arthropodDefault.length; i++)
         {
             var opt = document.createElement('option');
@@ -274,7 +276,7 @@ var reportForm = {
     	var comment = document.getElementById("comment").value;
 
     	// TODO: images
-    	// TODO: Figure out how to format information and where to submit
+        // TODO: Submit images as blob to Azure then get url to them returned?
 
         // Create the string for the json then change it into a json object
         var json = '{ "field_info" : [' +
