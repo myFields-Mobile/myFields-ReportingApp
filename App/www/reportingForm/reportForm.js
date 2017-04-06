@@ -276,21 +276,29 @@ var reportForm = {
     	var comment = document.getElementById("comment").value;
 
     	// TODO: images
-        // TODO: Submit images as blob to Azure then get url to them returned?
+        var imageUrl = ''; // TODO: Submit images as blob to Azure then get url to them returned?
 
         // Create the string for the json then change it into a json object
         var json = '{ "field_info" : [' +
-                '{ "crop":"' + crop + '", ' +
-                '"arthropods":"' + arthropods + '", ' +
-                '"diseases":"' + diseases + '", ' +
-                '"weeds":"' + weeds + '", ' +
-                '"comment":"' + comment + '", ' +
-                '"location":"' + location.toString() + '", ' +
-                '"images":"' + 'images' + '"} ]} '; // TODO: This needs to be a url to images in Azure
-
-        json = JSON.parse(json);
+                '{ "Crop":"' + crop + '", ' +
+                '"Arthropods":"' + arthropods + '", ' +
+                '"Diseases":"' + diseases + '", ' +
+                '"Weeds":"' + weeds + '", ' +
+                '"Comment":"' + comment + '"} ]} ';
+        // json = JSON.parse(json);
 
         // TODO: Submit form to server
+        $.ajax({
+            url: API + 'api/',
+            data: {
+                token: userJWT,
+                jsondata: json,
+                image: imageUrl,
+                longitude: reportForm.location.Longitude.toString(),
+                latitude: reportForm.location.Latitude.toString()
+            }
+
+        });
     },
 
     /**
