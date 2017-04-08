@@ -1,5 +1,6 @@
 /** Global variable for authenticated user's JWT token */
-var userJWT;
+var oauthToken;
+var oauthTokenSecret;
 
 /** Global variable to store currently logged in user */
 var loggedInUser;
@@ -26,20 +27,25 @@ var loginPage = {
     },
 
     /** 
-     * On "Submit" button push, calls the authentication API. 
+     * On "Submit" button push, opens an in-app-browser for the user to log in using Oauth
      * If successful, gets the authenticated user and goes to home page.
      */
     onLogin: function(e) {
         e.preventDefault();
-        
+        var browser = window.open(API + "api/authenticate", '_blank', 'location=yes');
+
+        // TODO: capture token and token secret after user logs in
+
+        /*
         $.ajax({
             url: API + "api/authenticate",
             data: {
                 email: $('#emailBox').val(),
                 password: $('#pwBox').val()
             },
-            success: function(data) {
-                userJWT = data.token;
+            success: function(data, status, xhr) {
+                console.log(xhr.getAllResponseHeaders());
+                //userJWT = data.token;
 
                 // On successful authentication, get the authenticated user
                 $.ajax({
@@ -60,10 +66,11 @@ var loginPage = {
                 console.log("Failed login attempt. User: " + $('#emailBox').val() + " at " + Date());
                 alert("Unrecognized username or password. Please try again.");
             },
-            method: "POST",
+            rejectUnauthorized: false,
+            method: "GET",
             dataType: "json"
         })
-
+        */
         // TODO: remove testing stuff
     },
 
