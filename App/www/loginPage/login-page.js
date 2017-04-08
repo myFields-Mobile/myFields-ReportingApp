@@ -27,12 +27,16 @@ var loginPage = {
     },
 
     /** 
-     * On "Submit" button push, calls the authentication API. 
+     * On "Submit" button push, opens an in-app-browser for the user to log in using Oauth
      * If successful, gets the authenticated user and goes to home page.
      */
     onLogin: function(e) {
         e.preventDefault();
-        
+        var browser = window.open(API + "api/authenticate", '_blank', 'location=yes');
+
+        // TODO: capture token and token secret after user logs in
+
+        /*
         $.ajax({
             url: API + "api/authenticate",
             data: {
@@ -66,7 +70,7 @@ var loginPage = {
             method: "GET",
             dataType: "json"
         })
-
+        */
         // TODO: remove testing stuff
     },
 
