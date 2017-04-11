@@ -12,14 +12,9 @@ var contactUs = {
         this.renderView();
     },
 
-<<<<<<< HEAD
-<<<<<<< HEAD
     /**
      * Loads the Contact Us page 
      */
-=======
-=======
->>>>>>> origin/master
     bindEvents: function() {
     	$('#submit').on('click', this.onSubmit);
     	$('#cancel').on('click', this.onCancel);
@@ -37,10 +32,6 @@ var contactUs = {
     	menuPage.initialize(false);
     },
 
-<<<<<<< HEAD
->>>>>>> origin/master
-=======
->>>>>>> origin/master
     renderView: function() {
         $('#view').load("../contactUs/contactUs.html", function(){
         	contactUs.bindEvents();
