@@ -1,3 +1,8 @@
+var express = require( "express" );
+var ImageUpload = require( "express-azure-image-upload" );
+
+var router = express.Router();
+
 /**
  * Report Form
  * @class
@@ -226,6 +231,25 @@ var reportForm = {
     },
 
     /**
+     * Upload an image to Azure Blob Storage and return the url location of image
+     *
+     * @returns {string} the url of the image
+     */
+    imageHandler: function(){
+        // TODO: Figure out this function
+
+        var storageAcct = "myfieldsstorage";
+        var storageKey = "1sVFgFK7vKNXoxpCzeVGDjBaU99NCUtUYhX2HGtKeAzgycZcW3enLxMe6dh7c/uW5qiWKga3vtClWP5Cx70HGg==";
+        var storageContainer = "myfields-reporting";
+
+        var imageUpload = new ImageUpload( storageAcct, storageKey, storageContainer );
+
+        // return imageUpload.handler;
+        return "";
+
+    },
+
+    /**
      * Event handler for when the "Submit" button is hit. Gets the information
      * and stores it to a table ("AppData") on the database
      */
@@ -276,7 +300,8 @@ var reportForm = {
     	var comment = document.getElementById("comment").value;
 
     	// TODO: images
-        var imageUrl = ''; // TODO: Submit images as blob to Azure then get url to them returned?
+        //var imageUrl = reportForm.uploadImage();
+        router.post("/whatever", reportForm.imageHandler()); // TODO: Figure this out
 
         // Create the string for the json then change it into a json object
         var json = '{ "field_info" : [' +
