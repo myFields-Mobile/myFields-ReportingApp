@@ -1,8 +1,3 @@
-var express = require( "express" );
-var ImageUpload = require( "express-azure-image-upload" );
-
-var router = express.Router();
-
 /**
  * Report Form
  * @class
@@ -231,25 +226,6 @@ var reportForm = {
     },
 
     /**
-     * Upload an image to Azure Blob Storage and return the url location of image
-     *
-     * @returns {string} the url of the image
-     */
-    imageHandler: function(){
-        // TODO: Figure out this function
-
-        var storageAcct = "myfieldsstorage";
-        var storageKey = "1sVFgFK7vKNXoxpCzeVGDjBaU99NCUtUYhX2HGtKeAzgycZcW3enLxMe6dh7c/uW5qiWKga3vtClWP5Cx70HGg==";
-        var storageContainer = "myfields-reporting";
-
-        var imageUpload = new ImageUpload( storageAcct, storageKey, storageContainer );
-
-        // return imageUpload.handler;
-        return "";
-
-    },
-
-    /**
      * Event handler for when the "Submit" button is hit. Gets the information
      * and stores it to a table ("AppData") on the database
      */
@@ -299,9 +275,33 @@ var reportForm = {
 
     	var comment = document.getElementById("comment").value;
 
-    	// TODO: images
-        //var imageUrl = reportForm.uploadImage();
-        router.post("/whatever", reportForm.imageHandler()); // TODO: Figure this out
+        // TODO: Figure this out
+        // Upload image to Azure and get url
+        var imageUrl = "";
+        $.ajax({
+            url: API + "api/images/uploadImage",
+            data: {
+                storageAccount: "myfieldsstorage",
+                storageKey: "1sVFgFK7vKNXoxpCzeVGDjBaU99NCUtUYhX2HGtKeAzgycZcW3enLxMe6dh7c/uW5qiWKga3vtClWP5Cx70HGg==",
+                container: "myfields-reporting",
+                image: ""
+            },
+            success: function(data){
+                imageUrl = data;
+            }
+        });
+
+        // $.ajax({
+        //     url: API + "api/images/addBlob",
+        //     data: {
+        //         container: "myfields-reporting",
+        //         filename: ""
+        //     },
+        //     succes: function(data){
+        //
+        //     }
+        // });
+
 
         // Create the string for the json then change it into a json object
         var json = '{ "field_info" : [' +
@@ -314,7 +314,7 @@ var reportForm = {
 
         // TODO: Submit form to server
         $.ajax({
-            url: API + 'api/',
+            url: API + 'api/appdata/create',
             data: {
                 token: userJWT,
                 jsondata: json,
