@@ -275,8 +275,11 @@ var reportForm = {
 
     	var comment = document.getElementById("comment").value;
 
-        // TODO: Figure this out
-        // Upload image to Azure and get url
+        /*
+            TODO: Figure out which post method to use to upload blob to Azure and get url to image (myFields-API/routes/
+            images/images.js)
+            Use the appropriate ajax call to call the chosen post method
+         */
         var imageUrl = "";
         $.ajax({
             url: API + "api/images/uploadImage",

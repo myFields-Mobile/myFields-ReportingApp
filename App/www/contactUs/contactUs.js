@@ -16,7 +16,7 @@ var contactUs = {
      * Loads the Contact Us page 
      */
     bindEvents: function() {
-    	$('#submit').on('click', this.onSubmit);
+    	$('#submit').on('click', {comment: document.getElementById("comment").value}, this.onSubmit);
     	$('#cancel').on('click', this.onCancel);
     },
 
@@ -27,8 +27,13 @@ var contactUs = {
     	menuPage.initialize(false);
     },
 
-    onSubmit: function() {
+    onSubmit: function(event) {
     	// TODO: make this do actual things
+        var json = '{ "userComments" : [' +
+                '"app":"myFields Mobile"' +
+                '"user":"' + '' +
+                '"comment":"' +  event.data.comment + '"' +
+            '} ]}';
     	menuPage.initialize(false);
     },
 
