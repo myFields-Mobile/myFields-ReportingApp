@@ -36,7 +36,8 @@ var reportForm = {
     		opt.value = cropDefault[i];
     		cropSelection.appendChild(opt);
     	}
-    	
+
+    	// TODO: Make sure this works
         // Get crops
         $.ajax({
             url: API + "api/crop",
@@ -76,6 +77,7 @@ var reportForm = {
         noneOption.value = 'None';
         arthropodSelection.appendChild(noneOption);
 
+        // TODO: Switch this out with database call
         // Append options for real arthropod selection
         for (var i = 0; i < arthropodDefault.length; i++)
         {
@@ -84,6 +86,8 @@ var reportForm = {
             opt.value = arthropodDefault[i];
             arthropodSelection.appendChild(opt);
         }
+
+        // TODO: Uncomment the following and make sure database calls work
 
         // Set up for disease population - DO NOT DELETE
         // $.ajax({

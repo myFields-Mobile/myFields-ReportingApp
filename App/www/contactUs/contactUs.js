@@ -31,7 +31,7 @@ var contactUs = {
     	// TODO: make this do actual things
         var json = '{ "userComments" : [' +
                 '"app":"myFields Mobile"' +
-                '"user":"' + '' +
+                '"user":"' + '' +  // TODO: Figure out how to get username of current logged in user
                 '"comment":"' +  event.data.comment + '"' +
             '} ]}';
     	menuPage.initialize(false);
