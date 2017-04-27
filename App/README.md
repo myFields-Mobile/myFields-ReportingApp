@@ -9,6 +9,10 @@ As we resolve issues with the API, we will add in more API calls and functionali
 
 ## Usage Model:
 
+The project is run using Apache Cordova.
+
+[comment]: # TODO: Add more description here.
+
 ## Testing:
 
 Currently, the testing for this application is done through the tests for the API, which is done using Mocha. Documentation for running the API tests can be found in the API's README.
@@ -56,3 +60,4 @@ The first priority is finishing authentication with the API and making sure it i
 
 
 ## Reference Links:
+* Apache Cordova Documentation: https://cordova.apache.org/docs/en/latest/
