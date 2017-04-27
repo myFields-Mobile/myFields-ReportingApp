@@ -22,29 +22,37 @@ The first priority is finishing authentication with the API and making sure it i
         i. onCancel
             - Make sure authentication is working and change false to user.isAdmin
         ii. onSubmit
-            - Get information from contactUs.html and organize into json. Figure out where to submit to server and do so.
+            - Get information from contactUs.html and organize into json. Figure out where to submit 
+                to server and do so.
     2. login-page.js
         i. DOUBLE CHECK
     3. reportForm.js
         i. populateForm
-            - Get list of crops from database and change the values in the crop dropdown in reportForm.html
-            - Get list of arthropods from database and change values in arthropod dropdown in reportForm.html
-            - Uncomment the disease and weed populations sections and make sure the database calls to get those values are correct
-            - For arthropods, weeds, and diseases, make sure the first option for each dropdown is "None" since a user doesn't have to select all three
+            - Get list of crops from database and change the values in the crop dropdown in 
+                reportForm.html
+            - Get list of arthropods from database and change values in arthropod dropdown in 
+                reportForm.html
+            - Uncomment the disease and weed populations sections and make sure the database calls to 
+                get those values are correct
+            - For arthropods, weeds, and diseases, make sure the first option for each dropdown is "None" 
+                since a user doesn't have to select all three
         ii. onCancel
             - Make sure authentication is working and change false to user.isAdmin
         iii. onLocation
             - Possibly add some map functionality so users can select position on map
         iv. onSubmit
-            - There are currently two different image upload post methods set up in the API but neither works. Whichever one is chosen and fixed, use the appropriate ajax call.
+            - There are currently two different image upload post methods set up in the API but neither 
+                works. Whichever one is chosen and fixed, use the appropriate ajax call.
             - Submit form to server
     4. reportForm.html
-        i. Potentially add a "Contact Us" button that does what the help button does and change the Help button to a tips/FAQ page
+        i. Potentially add a "Contact Us" button that does what the help button does and change the Help 
+            button to a tips/FAQ page
     6. user-menu.js
         i. onLogout
             - Potential cleanup
     7. normalUserMenu.html and specialistUserMenu.html
-        i. Potentially add a “Contact Us” button that does what the Help button does and change the Help button to a tips/faq page
+        i. Potentially add a “Contact Us” button that does what the Help button does and change the Help 
+            button to a tips/faq page
 
 
 ## Reference Links:
