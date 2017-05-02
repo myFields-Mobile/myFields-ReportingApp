@@ -9,9 +9,7 @@ As we resolve issues with the API, we will add in more API calls and functionali
 
 ## Usage Model:
 
-The project is run using Apache Cordova.
-
-[comment]: # TODO: Add more description here.
+The project is run and built using Apache Cordova. The API for this project needs to up and running for this application to work. For information on setting up and using the API, please see https://github.com/myFields-Mobile/myFields-API/blob/master/README.md
 
 ## Testing:
 
