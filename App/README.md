@@ -55,6 +55,8 @@ The first priority is finishing authentication with the API and making sure it i
     7. normalUserMenu.html and specialistUserMenu.html
         i. Potentially add a “Contact Us” button that does what the Help button does and change the Help 
             button to a tips/faq page
+    8. There needs to be an interface available where myFields specialists/agents/researchers can view crop 
+        reports and later approve those reports
 
 
 ## Reference Links:
