@@ -55,7 +55,7 @@ var menuPage = {
     /**
      * Event handler for help link - goes to "Contact Us" page
      */
-    onHelp(){
+    onHelp: function(){
         contactUs.initialize();
     },
 

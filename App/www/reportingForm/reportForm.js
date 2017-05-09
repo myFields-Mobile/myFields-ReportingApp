@@ -29,14 +29,15 @@ var reportForm = {
     		cropSelection.remove(option);
     	}
 
-    	for (var i=0; i < cropDefault.length; i++)
+    	for (var i = 0; i < cropDefault.length; i++)
     	{
     		var opt = document.createElement('option');
     		opt.innerHTML = cropDefault[i];
     		opt.value = cropDefault[i];
     		cropSelection.appendChild(opt);
     	}
-    	
+
+    	// TODO: Make sure this works
         // Get crops
         $.ajax({
             url: API + "api/crop",
@@ -70,6 +71,14 @@ var reportForm = {
             arthropodSelection.remove(option);
         }
 
+        // Need a None option for all dropdowns except crop
+        var noneOption = document.createElement('option');
+        noneOption.innerHTML = 'None';
+        noneOption.value = 'None';
+        arthropodSelection.appendChild(noneOption);
+
+        // TODO: Switch this out with database call
+        // Append options for real arthropod selection
         for (var i = 0; i < arthropodDefault.length; i++)
         {
             var opt = document.createElement('option');
@@ -77,6 +86,8 @@ var reportForm = {
             opt.value = arthropodDefault[i];
             arthropodSelection.appendChild(opt);
         }
+
+        // TODO: Uncomment the following and make sure database calls work
 
         // Set up for disease population - DO NOT DELETE
         // $.ajax({
@@ -88,7 +99,9 @@ var reportForm = {
         //         {
         //             diseaseSelection.remove(option);
         //         }
-
+        //
+        //         diseaseSelection.appendChild(noneOption);
+        //
         //         for (var i = 0; i < data.length; i++)
         //         {
         //             if(data[i].active){
@@ -111,7 +124,9 @@ var reportForm = {
         //         {
         //             weedSelection.remove(option);
         //         }
-
+        //
+        //         weedSelection.appendChild(noneOption)
+        //
         //         for (var i = 0; i < data.length; i++)
         //         {
         //             if(data[i].active){
@@ -175,16 +190,14 @@ var reportForm = {
 
     },
 
-    /**
-     * Event handler for get location
-     */
-
     onCancel: function(){
         // TODO: change false to user.isAdmin
         menuPage.initialize(false);
     },
 
-    // Event handler for get location
+    /**
+     * Event handler for get location
+     */
     onLocation: function(){
 
         // TODO: Might want to add some map functionality - can use docs found here: https://cordova.apache.org/docs/en/latest/reference/cordova-plugin-geolocation/index.html#see-where-you-are-on-a-map
@@ -194,7 +207,7 @@ var reportForm = {
                 reportForm.location = {
                     Latitude: position.coords.latitude,
                     Longitude: position.coords.longitude
-                }
+                };
                 console.log("Successfully got location: " + reportForm.location.Latitude + " , " + reportForm.location.Longitude);
             }, 
             // On failed geolocation.getCurrentPosition, reportForm.location = undefined
@@ -227,50 +240,101 @@ var reportForm = {
             alert("Please capture GPS location before submitting.");
         }
 
-    	// Get selected crop
+        // Get single crop
     	var c = document.getElementById("cropDropdown");
     	var crop = c.options[c.selectedIndex].text;
 
-    	// Get selected arthropod
-    	// var a = document.getElementById("arthropodDropdown");
-    	// var arthropod = a.options[a.selectedIndex].text;
-        // selectArray = $('[id^=arthropodDropdown]');
-        // var arthropods = selectArray.map(function(){
-         //    return this.text;
-        // });
-
-        var a = document.getElementsByName("arthropod");
+        // Get arthropod(s), if any
+        var a = document.getElementsByName("arthropodDropdown");
         var arthropods = new Array();
         for (var i = 0; i < a.length; i++){
-            arthropods.push(a[i].text)
+            if (a[i].value != 'None')
+            {
+                arthropods.push(a[i].value)
+            }
         }
-        arthropods = arthropods.toString();
+        arthropods = arthropods.join(", ");
 
-    	// TODO: get multiple diseases (potentially make a loop and add diseases to a string/array?)
-        var dis = document.getElementsByName("disease");
+        // Get disease(s), if any
+        var dis = document.getElementsByName("diseaseDropdown");
         var diseases = new Array();
         for (var i = 0; i < dis.length; i++){
-            diseases.push(dis[i].text);
+            if (dis[i].value != 'None')
+            {
+                diseases.push(dis[i].value);
+            }
         }
-        diseases = diseases.toString();
-    	// TODO: get mutliple weeds (potentially make a loop and add weeds to a string/array?)
-        var w = document.getElementsByName("weed");
+        diseases = diseases.join(", ");
+
+        // Get weed(s), if any
+        var w = document.getElementsByName("weedDropdown");
         var weeds = new Array();
         for (var i = 0; i < w.length; i++){
-            weeds.push(w[i].text);
+            if (w[i].value != 'None')
+            {
+                weeds.push(w[i].value);
+            }
         }
-        weeds = weeds.toString();
+        weeds = weeds.join(", ");
 
-    	var comment = document.getElementById("comment");
+    	var comment = document.getElementById("comment").value;
 
-    	// TODO: location
-    	// TODO: images
+        /*
+            TODO: Figure out which post method to use to upload blob to Azure and get url to image (myFields-API/routes/
+            images/images.js)
+            Use the appropriate ajax call to call the chosen post method
+         */
+        var imageUrl = "";
+        $.ajax({
+            url: API + "api/images/uploadImage",
+            data: {
+                storageAccount: "myfieldsstorage",
+                storageKey: "1sVFgFK7vKNXoxpCzeVGDjBaU99NCUtUYhX2HGtKeAzgycZcW3enLxMe6dh7c/uW5qiWKga3vtClWP5Cx70HGg==",
+                container: "myfields-reporting",
+                image: ""
+            },
+            success: function(data){
+                imageUrl = data;
+            }
+        });
 
-    	// TODO: Figure out how to format information and where to submit
+        // $.ajax({
+        //     url: API + "api/images/addBlob",
+        //     data: {
+        //         container: "myfields-reporting",
+        //         filename: ""
+        //     },
+        //     succes: function(data){
+        //
+        //     }
+        // });
+
+
+        // Create the string for the json then change it into a json object
+        var json = '{ "field_info" : [' +
+                '{ "Crop":"' + crop + '", ' +
+                '"Arthropods":"' + arthropods + '", ' +
+                '"Diseases":"' + diseases + '", ' +
+                '"Weeds":"' + weeds + '", ' +
+                '"Comment":"' + comment + '"} ]} ';
+        // json = JSON.parse(json);
+
+        // TODO: Submit form to server
+        $.ajax({
+            url: API + 'api/appdata/create',
+            data: {
+                token: userJWT,
+                jsondata: json,
+                image: imageUrl,
+                longitude: reportForm.location.Longitude.toString(),
+                latitude: reportForm.location.Latitude.toString()
+            }
+
+        });
     },
 
     /**
-     * Loads the Report Form page
+     * Load the Report Form page
      */
 
     onHelp: function(){
