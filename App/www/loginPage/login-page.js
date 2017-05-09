@@ -31,8 +31,10 @@ var loginPage = {
      * If successful, gets the authenticated user and goes to home page.
      */
     onLogin: function(e) {
-        e.preventDefault();
-        var browser = window.open(API + "api/authenticate", '_blank', 'location=yes');
+        // e.preventDefault();
+        // var browser = window.open(API + "api/authenticate", '_blank', 'location=yes');
+
+        menuPage.initialize(false);
 
         // TODO: capture token and token secret after user logs in
 
