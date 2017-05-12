@@ -343,8 +343,8 @@ var reportForm = {
 
     renderView: function() {
         $('#view').load("../reportingForm/reportForm.html", function(){
-            reportForm.populateForm();
             reportForm.bindEvents();
+            reportForm.populateForm();
         });
     }
 };
